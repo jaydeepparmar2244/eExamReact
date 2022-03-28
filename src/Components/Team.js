@@ -3,7 +3,6 @@ import React from 'react'
 
 export const Team = () => {
   return (
-    <div>
         <div className="container-xxl py-5">
             <div className="container">
                 <div className="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" id='a'>
@@ -78,6 +77,5 @@ export const Team = () => {
                 </div>
             </div>
         </div>
-    </div>
   )
 }

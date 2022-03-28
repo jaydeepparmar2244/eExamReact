@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export const Signup = () => {
     const [firstName, setfirstName] = useState('')
@@ -9,6 +10,8 @@ export const Signup = () => {
     const [password, setpassword] = useState('')
     const [role, setrole] = useState('')
     const [roleList, setroleList] = useState([])
+
+    let navigate  = useNavigate()
 
     const getRoles = () => {
         axios.get('http://localhost:8080/roles').then(res=>{
@@ -57,11 +60,12 @@ export const Signup = () => {
         }).catch(err=>{
             console.log(err)
         })
+        navigate('/exams')
     }
 
     return (
-        <section className="vh-100" style={{backgroundColor: "#eee"}}>
-            <div className="container h-100">
+        <section>
+            <div className="container h-100 my-4">
                 <div className="row d-flex justify-content-center align-items-center h-100">
                     <div className="col-lg-12 col-xl-11">
                         <div className="card text-black">
@@ -149,12 +153,14 @@ export const Signup = () => {
                                                 <button type="submit" className="btn btn-primary btn-lg">Register</button>
                                             </div>
 
+                                            {/* <button className='btn btn-danger' type='submit' onClick={navigate('/exams')}>Hello</button> */}
+
                                         </form>
 
                                     </div>
                                     <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
-                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp" className="img-fluid" alt="Sample image" />
+                                        <img src="img/exam/eeexamm.png" className="img-fluid" alt="Sample image" />
 
                                     </div>
                                 </div>

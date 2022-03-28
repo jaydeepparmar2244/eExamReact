@@ -1,7 +1,5 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-// import '../css/category.css'
-// import image from '../img/icon-condominium.png'
 
 export const Subjects = () => {
     const [subjectsList, setsubjectsList] = useState([])
@@ -18,7 +16,6 @@ export const Subjects = () => {
     }, [])
 
     return (
-        <div>
             <div className="container-xxl py-5">
                 <div className="container">
                     <div className="text-center mx-auto mb-5 wow fadeInUp a" data-wow-delay="0.1s">
@@ -46,6 +43,7 @@ export const Subjects = () => {
                     </div>
                 </div>
             </div>
-        </div>
     )
 }
+
+

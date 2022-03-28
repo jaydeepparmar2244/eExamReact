@@ -16,29 +16,20 @@ import { Route, Routes } from 'react-router-dom';
 import { AddExam } from './Components/AddExam';
 import { AddSubject } from './Components/AddSubject';
 import { UpdateExam } from './Components/UpdateExam';
+import { BackToTop } from './Components/BackToTop';
+import { Home } from './Components/Home';
+import { ViewOneExam } from './Components/ViewOneExam';
+import { AddQuestionsToExam } from './Components/AddQuestionsToExam';
 // import { Spinner } from './Components/Spinner';
 
 function App() {
-  // componentDidMount(); {
-  //   new WOW.WOW({
-  //     live: false
-  // }).init();
-  // }
   return (
     <React.Fragment>
       {/* <div className="container-xxl bg-white p-0"> */}
       {/* <Spinner/> */}
       <Navbar/>
-      {/* <Header/>
-      <Search/>
-      <Category/>
-      <About/>
-      <Exams/>
-      <Contact/>
-      <Team/>
-      <Testimonial/>
-      <Footer/> */}
       <Routes>
+        <Route path='/' element={<Home/>}></Route>
         <Route path='/exams' element={<Exams/>}></Route>
         <Route path='/subjects' element={<Subjects/>}></Route>
         <Route path='/login' element={<Login/>}></Route>
@@ -46,7 +37,11 @@ function App() {
         <Route path='/exam/new' element={<AddExam/>}></Route>
         <Route path='/subject/new' element={<AddSubject/>}></Route>
         <Route path='/exams/:examId' element={<UpdateExam/>}></Route>
+        <Route path='/exam/:examId' element={<ViewOneExam/>}></Route>
+        <Route path='/exam/:examId/questions' element={<AddQuestionsToExam/>}></Route>
       </Routes>
+      <Footer/>
+      <BackToTop/>
       {/* </div> */}
     </React.Fragment>
   );

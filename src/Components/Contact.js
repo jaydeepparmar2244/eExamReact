@@ -4,8 +4,6 @@ import React from 'react'
 
 export const Contact = () => {
     return (
-        <div>
-            {/* <ReactWOW> */}
             <div className="container-xxl py-5">
                 <div className="container">
                     <div className="bg-light rounded p-3">
@@ -27,7 +25,5 @@ export const Contact = () => {
                     </div>
                 </div>
             </div>
-            {/* </ReactWOW> */}
-        </div>
     )
 }

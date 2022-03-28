@@ -3,8 +3,6 @@ import React from 'react'
 
 export const About = () => {
   return (
-    <div>
-        {/* <ReactWOW> */}
         <div className="container-xxl py-5">
             <div className="container">
                 <div className="row g-5 align-items-center">
@@ -24,7 +22,5 @@ export const About = () => {
                 </div>
             </div>
         </div>
-        {/* </ReactWOW> */}
-    </div>
   )
 }

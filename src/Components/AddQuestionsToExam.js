@@ -1,8 +1,11 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
+
 
 export const AddQuestionsToExam = () => {
+    var navigate = useNavigate()
+
     const examId = useParams().examId;
     const [questionName, setquestionName] = useState('')
     const [option1, setoption1] = useState('')
@@ -26,6 +29,7 @@ export const AddQuestionsToExam = () => {
         }).catch(err=>{
             console.log(err)
         })
+        navigate(`/exam/${examId}`)
     }
   return (
      <section class="vh-100" >

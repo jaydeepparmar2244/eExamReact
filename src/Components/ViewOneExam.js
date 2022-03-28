@@ -20,8 +20,8 @@ export const ViewOneExam = () => {
 
     useEffect(() => {
         getOneExam()
-    },[])
-    
+    }, [])
+
     return (
         <div className="container-xxl py-5">
             <div className="container">
@@ -43,13 +43,36 @@ export const ViewOneExam = () => {
                         </ul>
                     </div>
                 </div>
-                {
-                    questions.map((question)=>{
-                        return(
-                            <h1>{question.questionName}</h1>
-                        )
-                    })
-                }
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Question No.</th>
+                            <th scope="col">Question</th>
+                            <th scope="col">Option-1</th>
+                            <th scope="col">Option-2</th>
+                            <th scope="col">Option-3</th>
+                            <th scope="col">Option-4</th>
+                            <th scope="col">Answer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            questions.map((question) => {
+                                return (
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>{question.questionName}</td>
+                                        <td>{question.option1}</td>
+                                        <td>{question.option2}</td>
+                                        <td>{question.option3}</td>
+                                        <td>{question.option4}</td>
+                                        <td>{question.answer}</td>
+                                    </tr>
+                                )
+                            })
+                        }
+                    </tbody>
+                </table>
 
             </div>
         </div>

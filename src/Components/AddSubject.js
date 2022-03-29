@@ -29,51 +29,51 @@ export const AddSubject = () => {
         })
     }
   return (
-    <section class="vh-100">
-            <div class="container h-100">
-                <div class="row d-flex justify-content-center align-items-center h-100">
-                    <div class="col-lg-12 col-xl-11">
-                        <div class="card text-black">
-                            <div class="card-body p-md-5">
-                                <div class="row justify-content-center">
-                                    <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+    <section className="vh-100">
+            <div className="container h-100">
+                <div className="row d-flex justify-content-center align-items-center h-100">
+                    <div className="col-lg-12 col-xl-11">
+                        <div className="card text-black">
+                            <div className="card-body p-md-5">
+                                <div className="row justify-content-center">
+                                    <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-                                        <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Add Subject</p>
+                                        <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Add Subject</p>
 
-                                        <form class="mx-1 mx-md-4" onSubmit={submitHandler}>
+                                        <form className="mx-1 mx-md-4" onSubmit={submitHandler}>
 
-                                            <div class="d-flex flex-row align-items-center mb-4">
-                                                <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                                                <div class="form-outline flex-fill mb-0">
-                                                    <input type="text" name="subjectName" id="subjectName" onChange={(e)=>{subjectNameHandler(e)}} class="form-control" />
-                                                    <label class="form-label" for="subjectName">Subject Name</label>
+                                            <div className="d-flex flex-row align-items-center mb-4">
+                                                <i className="fas fa-user fa-lg me-3 fa-fw"></i>
+                                                <div className="form-outline flex-fill mb-0">
+                                                    <input type="text" name="subjectName" id="subjectName" onChange={(e)=>{subjectNameHandler(e)}} className="form-control" />
+                                                    <label className="form-label" for="subjectName">Subject Name</label>
                                                 </div>
                                             </div>
 
-                                            <div class="d-flex flex-row align-items-center mb-4">
-                                                <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                                                <div class="form-outline flex-fill mb-0">
-                                                    <input type="text" name="subjectDescription" id="subjectDescription" onChange={(e)=>{subjectDescriptionHandler(e)}} class="form-control" />
-                                                    <label class="form-label" for="subjectDescription">Subject Description</label>
+                                            <div className="d-flex flex-row align-items-center mb-4">
+                                                <i className="fas fa-user fa-lg me-3 fa-fw"></i>
+                                                <div className="form-outline flex-fill mb-0">
+                                                    <input type="text" name="subjectDescription" id="subjectDescription" onChange={(e)=>{subjectDescriptionHandler(e)}} className="form-control" />
+                                                    <label className="form-label" for="subjectDescription">Subject Description</label>
                                                 </div>
                                             </div>
 
-                                            <div class="d-flex flex-row align-items-center mb-4">
-                                                <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="isActive" id="isActive" onChange={(e)=>{isActiveHandler(e)}} value="1" />
-                                                    <label class="form-check-label" for="isActive">Active</label>
+                                            <div className="d-flex flex-row align-items-center mb-4">
+                                                <i className="fas fa-user fa-lg me-3 fa-fw"></i>
+                                                <div className="form-check form-check-inline">
+                                                    <input className="form-check-input" type="radio" name="isActive" id="isActive" onChange={(e)=>{isActiveHandler(e)}} value="1" />
+                                                    <label className="form-check-label" for="isActive">Active</label>
                                                 </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="isActive" id="isActive" onChange={(e)=>{isActiveHandler(e)}} value="0" />
-                                                    <label class="form-check-label" for="isActive">InActive</label>
+                                                <div className="form-check form-check-inline">
+                                                    <input className="form-check-input" type="radio" name="isActive" id="isActive" onChange={(e)=>{isActiveHandler(e)}} value="0" />
+                                                    <label className="form-check-label" for="isActive">InActive</label>
                                                 </div>
 
-                                                {/* <label htmlFor="gender" class="form-label">Status</label> */}
+                                                {/* <label htmlFor="gender" className="form-label">Status</label> */}
                                             </div>
 
-                                            <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                                <button type="submit" class="btn btn-primary btn-lg">Add</button>
+                                            <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                                <button type="submit" className="btn btn-primary btn-lg">Add</button>
                                             </div>
 
                                         </form>

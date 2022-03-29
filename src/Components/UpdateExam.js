@@ -118,7 +118,7 @@ export const UpdateExam = () => {
                                                 {
                                                     subjectList.map((subj)=>{
                                                         return(
-                                                            <option value={subj._id}>{subj.subjectName}</option>
+                                                            <option value={subj._id} key={subj._id}>{subj.subjectName}</option>
                                                         )
                                                     })
                                                     

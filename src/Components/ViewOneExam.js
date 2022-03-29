@@ -51,7 +51,7 @@ export const ViewOneExam = () => {
                         </ul>
                     </div>
                 </div>
-                <table class="table auto-index">
+                <table className="table auto-index">
                     <thead>
                         <tr>
                             <th scope="col">Sr No.</th>
@@ -70,7 +70,7 @@ export const ViewOneExam = () => {
                             questions.map((question) => {
                                 return (
                                     <tr>
-                                        <th scope="row">1</th>
+                                        <th scope="row" key={question._id}></th>
                                         <td>{question.questionName}</td>
                                         <td>{question.option1}</td>
                                         <td>{question.option2}</td>

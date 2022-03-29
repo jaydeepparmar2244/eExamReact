@@ -68,7 +68,7 @@ export const Exams = () => {
                             {
                                 examList.map((exam => {
                                     return (
-                                        <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                        <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s" key={exam._id}>
                                             <div className="property-item rounded overflow-hidden">
                                                 <div className="position-relative overflow-hidden">
                                                     <Link to={`/exam/${exam._id}`}><img className="img-fluid" src='img/property-1.jpg' alt="" /></Link>

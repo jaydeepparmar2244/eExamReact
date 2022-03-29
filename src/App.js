@@ -1,14 +1,8 @@
 import './App.css';
 import React from 'react';
 import { Navbar } from './Components/Navbar';
-import { Header } from './Components/Header';
-import { Search } from './Components/Search';
 import { Subjects } from './Components/Subjects';
-import { About } from './Components/About';
 import { Exams } from './Components/Exams';
-import { Contact } from './Components/Contact';
-import { Team } from './Components/Team';
-import { Testimonial } from './Components/Testimonial';
 import { Footer } from './Components/Footer';
 import { Login } from './Components/Login';
 import { Signup } from './Components/Signup';

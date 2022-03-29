@@ -20,6 +20,7 @@ import { BackToTop } from './Components/BackToTop';
 import { Home } from './Components/Home';
 import { ViewOneExam } from './Components/ViewOneExam';
 import { AddQuestionsToExam } from './Components/AddQuestionsToExam';
+import { UpdateQuestion } from './Components/UpdateQuestion';
 // import { Spinner } from './Components/Spinner';
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
         <Route path='/exams/:examId' element={<UpdateExam/>}></Route>
         <Route path='/exam/:examId' element={<ViewOneExam/>}></Route>
         <Route path='/exam/:examId/questions' element={<AddQuestionsToExam/>}></Route>
+        <Route path='/exam/:examId/question/:questionId' element={<UpdateQuestion/>}></Route>
       </Routes>
       <Footer/>
       <BackToTop/>

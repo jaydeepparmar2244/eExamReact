@@ -43,16 +43,18 @@ export const ViewOneExam = () => {
                         </ul>
                     </div>
                 </div>
-                <table class="table">
+                <table class="table auto-index">
                     <thead>
                         <tr>
-                            <th scope="col">Question No.</th>
+                            <th scope="col">Sr No.</th>
                             <th scope="col">Question</th>
                             <th scope="col">Option-1</th>
                             <th scope="col">Option-2</th>
                             <th scope="col">Option-3</th>
                             <th scope="col">Option-4</th>
                             <th scope="col">Answer</th>
+                            <th scope="col">Update</th>
+                            <th scope="col">Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -67,6 +69,8 @@ export const ViewOneExam = () => {
                                         <td>{question.option3}</td>
                                         <td>{question.option4}</td>
                                         <td>{question.answer}</td>
+                                        <td><Link to={`/exam/${exam._id}/question/${question._id}`} className='btn btn-dark'>Update</Link></td>
+                                        <td><Link to='/' className='btn btn-danger'>Delete</Link></td>
                                     </tr>
                                 )
                             })

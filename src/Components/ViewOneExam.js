@@ -18,6 +18,14 @@ export const ViewOneExam = () => {
         })
     }
 
+    const deleteQuestion = (qId) => {
+        axios.delete(`http://localhost:8080/exams/${examId}/questions/${qId}`).then(res=>{
+            console.log(res.data.data)
+        }).catch(err=>{
+            console.log(err)
+        })
+    }
+
     useEffect(() => {
         getOneExam()
     }, [])
@@ -70,7 +78,7 @@ export const ViewOneExam = () => {
                                         <td>{question.option4}</td>
                                         <td>{question.answer}</td>
                                         <td><Link to={`/exam/${exam._id}/question/${question._id}`} className='btn btn-dark'>Update</Link></td>
-                                        <td><Link to='/' className='btn btn-danger'>Delete</Link></td>
+                                        <td><Link to={`/exam/${exam._id}`} className='btn btn-danger' onClick={(e) => { deleteQuestion(question._id) }}>Delete</Link></td>
                                     </tr>
                                 )
                             })

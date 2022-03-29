@@ -15,6 +15,7 @@ import { Home } from './Components/Home';
 import { ViewOneExam } from './Components/ViewOneExam';
 import { AddQuestionsToExam } from './Components/AddQuestionsToExam';
 import { UpdateQuestion } from './Components/UpdateQuestion';
+import { ExamsOfSubject } from './Components/ExamsOfSubject';
 // import { Spinner } from './Components/Spinner';
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
         <Route path='/exam/:examId' element={<ViewOneExam/>}></Route>
         <Route path='/exam/:examId/questions' element={<AddQuestionsToExam/>}></Route>
         <Route path='/exam/:examId/question/:questionId' element={<UpdateQuestion/>}></Route>
+        <Route path='/subject/:subjectId/exams' element={<ExamsOfSubject/>}></Route>
       </Routes>
       <Footer/>
       <BackToTop/>

@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export const Subjects = () => {
     const [subjectsList, setsubjectsList] = useState([])
@@ -27,7 +28,7 @@ export const Subjects = () => {
                             subjectsList.map((subject => {
                                 return (
                                     <div className="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s" key={subject._id}>
-                                        <a className="cat-item d-block bg-light text-center rounded p-3" href="">
+                                        <Link className="cat-item d-block bg-light text-center rounded p-3" to={`/subject/${subject._id}/exams`}>
                                             <div className="rounded p-4">
                                                 <div className="icon mb-3">
                                                     <img className="img-fluid" src='img/icon-apartment.png' alt="Icon" />
@@ -35,7 +36,7 @@ export const Subjects = () => {
                                                 <h6>{subject.subjectName}</h6>
                                                 <span>{subject.subjectDescription}</span>
                                             </div>
-                                        </a>
+                                        </Link>
                                     </div>
                                 )
                             }))

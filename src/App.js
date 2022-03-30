@@ -17,10 +17,10 @@ import { AddQuestionsToExam } from './Components/AddQuestionsToExam';
 import { UpdateQuestion } from './Components/UpdateQuestion';
 import { ExamsOfSubject } from './Components/ExamsOfSubject';
 // import { Spinner } from './Components/Spinner';
-
 function App() {
   return (
     <React.Fragment>
+    
       {/* <div className="container-xxl bg-white p-0"> */}
       {/* <Spinner/> */}
       <Navbar/>

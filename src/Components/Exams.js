@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export const Exams = () => {
     const [examList, setexamList] = useState([]);
+    var auth = localStorage.getItem('email')
+    var navigate = useNavigate()
     const getExams = () => {
         axios.get('http://localhost:8080/exams').then(res => {
             console.log(res.data.data)
@@ -20,21 +22,25 @@ export const Exams = () => {
     }, [])
 
     const deleteExam = (examId) => {
-        axios.delete(`http://localhost:8080/exams/${examId}`).then(res => {
-            console.log(res.data.data)
-            toast.success('Exam Deleted!', {
-                position: "bottom-right",
-                autoClose: 5000,
-                hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: 0,
-            });
-        }).catch(err => {
-            console.log(err)
-        })
-
+        if (!auth) {
+            navigate('/login')
+        }
+        else {
+            axios.delete(`http://localhost:8080/exams/${examId}`).then(res => {
+                console.log(res.data.data)
+                toast.success('Exam Deleted!', {
+                    position: "bottom-right",
+                    autoClose: 5000,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: 0,
+                });
+            }).catch(err => {
+                console.log(err)
+            })
+        }
     }
 
 

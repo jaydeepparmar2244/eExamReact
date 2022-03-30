@@ -1,13 +1,15 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Subjects } from './Subjects'
+import { Link, useNavigate } from 'react-router-dom'
 
 export const AddExam = () => {
     const [examName, setexamName] = useState('')
     const [totalQuestions, settotalQuestions] = useState('')
-    const [isActive, setisActive] = useState('')
-    const [subject, setsubject] = useState('')
+    const [isActive, setisActive] = useState('true')
+    const [subject, setsubject] = useState('6244443a29312c4ecc04197b')
     const [subjectList, setsubjectList] = useState([])
+    var auth = localStorage.getItem('email')
+    var navigate = useNavigate()
 
     const getSubjects = () => {
         axios.get('http://localhost:8080/subjects').then(res=>{
@@ -20,6 +22,11 @@ export const AddExam = () => {
 
     useEffect(() => {
       getSubjects()
+      {
+          if(!auth){
+              navigate('/login')
+          }
+      }
     }, [])
     
 

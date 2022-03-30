@@ -1,10 +1,21 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export const AddSubject = () => {
     const [subjectName, setsubjectName] = useState('')
     const [subjectDescription, setsubjectDescription] = useState('')
-    const [isActive, setisActive] = useState('')
+    const [isActive, setisActive] = useState('true')
+    var auth = localStorage.getItem('email')
+    var navigate = useNavigate()
+    useEffect(() => {
+        {
+            if (!auth) {
+                navigate('/login')
+            }
+        }
+    }, [])
+    
 
     const subjectNameHandler = (e) => {
         setsubjectName(e.target.value)

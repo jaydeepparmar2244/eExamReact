@@ -1,17 +1,19 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 export const UpdateQuestion = () => {
     var examId = useParams().examId
     var questionId = useParams().questionId
-    const [questionName, setquestionName] = useState('')
-    const [option1, setoption1] = useState('')
-    const [option2, setoption2] = useState('')
-    const [option3, setoption3] = useState('')
-    const [option4, setoption4] = useState('')
-    const [answer, setanswer] = useState('')
     const [question, setquestion] = useState([])
+    const [questionName, setquestionName] = useState(question.questionName)
+    const [option1, setoption1] = useState(question.option1)
+    const [option2, setoption2] = useState(question.option2)
+    const [option3, setoption3] = useState(question.option3)
+    const [option4, setoption4] = useState(question.option4)
+    const [answer, setanswer] = useState(question.answer)
+    var navigate = useNavigate()
+    var auth = localStorage.getItem('email')
 
     const getQuestion = () => {
         axios.get(`http://localhost:8080/exams/${examId}/questions/${questionId}`).then(res=>{
@@ -25,6 +27,14 @@ export const UpdateQuestion = () => {
     useEffect(() => {
       getQuestion()
     }, [])
+    useEffect(() => {
+        {
+            if (!auth) {
+                navigate('/login')
+            }
+        }
+    }, [])
+    
     
     const submitHandler = (e) => {
         e.preventDefault();

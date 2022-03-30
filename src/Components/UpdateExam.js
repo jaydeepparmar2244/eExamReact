@@ -5,13 +5,14 @@ import { useNavigate, useParams } from 'react-router-dom'
 export const UpdateExam = () => {
     const examId = useParams().examId
     const [exam, setexam] = useState([])
-    const [examName, setexamName] = useState('')
-    const [totalQuestions, settotalQuestions] = useState('')
-    const [isActive, setisActive] = useState('')
-    const [subject, setsubject] = useState('')
+    const [examName, setexamName] = useState(exam.examName)
+    const [totalQuestions, settotalQuestions] = useState(exam.totalQuestions)
+    const [isActive, setisActive] = useState(exam.isActive)
+    const [subject, setsubject] = useState(exam.subject)
     const [subjectList, setsubjectList] = useState([])
 
     var navigate = useNavigate()
+    var auth = localStorage.getItem('email')
 
     const getExams = () =>{
         axios.get(`http://localhost:8080/exams/${examId}`).then(res=>{
@@ -38,6 +39,15 @@ export const UpdateExam = () => {
     useEffect(() => {
         getSubjects()
     }, [])
+
+    useEffect(() => {
+        {
+            if (!auth) {
+                navigate('/login')
+            }
+        }
+    }, [])
+    
     
     
     const examNameHandler = (e) =>{
@@ -114,7 +124,7 @@ export const UpdateExam = () => {
                                             </div>
                                             <div className="d-flex flex-row align-items-center mb-4">
                                                 <i className="fas fa-key fa-lg me-3 fa-fw"></i>
-                                                <select className="form-select" name="subject" id='subject' value={exam.subject} onChange={(e)=>{subjectHandler(e)}}>
+                                                <select className="form-select" name="subject" id='subject' defaultValue={exam.subject} onChange={(e)=>{subjectHandler(e)}}>
                                                 {
                                                     subjectList.map((subj)=>{
                                                         return(

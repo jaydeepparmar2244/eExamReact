@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { toast, ToastContainer } from 'react-toastify'
 
 export const Signup = () => {
     const [firstName, setfirstName] = useState('')
@@ -8,7 +9,7 @@ export const Signup = () => {
     const [gender, setgender] = useState('')
     const [email, setemail] = useState('')
     const [password, setpassword] = useState('')
-    const [role, setrole] = useState('')
+    const [role, setrole] = useState('620dd220953533bffb9841d1')
     const [roleList, setroleList] = useState([])
 
     let navigate  = useNavigate()
@@ -57,11 +58,28 @@ export const Signup = () => {
         }
         axios.post('http://localhost:8080/users',data).then(res=>{
             console.log(res.data.data)
+            localStorage.setItem('email',res.data.data.email);
+			localStorage.setItem('role',res.data.data.role.roleName);
+			localStorage.setItem('firstName',res.data.data.firstName)
+			localStorage.setItem('lastName',res.data.data.lastName)
+            toast.success(res.data.msg, {
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: 0,
+            });
+            setTimeout(() => {
+                navigate('/')
+            }, 2000);
         }).catch(err=>{
             console.log(err)
         })
         navigate('/exams')
     }
+				
 
     return (
         <section>
@@ -137,6 +155,7 @@ export const Signup = () => {
                                             <div className="d-flex flex-row align-items-center mb-4">
                                                 <i className="fas fa-key fa-lg me-3 fa-fw"></i>
                                                 <select className="form-select" name="role" id='role' aria-label="Default select example" onChange={(e)=>{roleHandler(e)}}>
+                                                {/* <option value='#' disabled>Select</option>   */}
                                                    {
                                                        roleList.map((role)=>{
                                                            return(

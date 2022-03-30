@@ -1,51 +1,58 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 
 export const ExamsOfSubject = () => {
     var subjectId = useParams().subjectId;
     const [subject, setsubject] = useState('')
     const [examList, setexams] = useState([])
-    const getSubject = () =>{
-        axios.get(`http://localhost:8080/subjects/${subjectId}`).then(res=>{
+    var navigate  = useNavigate()
+    var auth = localStorage.getItem('email')
+    const getSubject = () => {
+        axios.get(`http://localhost:8080/subjects/${subjectId}`).then(res => {
             console.log(res.data.data)
             setsubject(res.data.data)
-        }).catch(err=>{
+        }).catch(err => {
             console.log(err)
         })
     }
-    const getExams = () =>{
-        axios.get(`http://localhost:8080/subjects/${subjectId}/exams`).then(res=>{
+    const getExams = () => {
+        axios.get(`http://localhost:8080/subjects/${subjectId}/exams`).then(res => {
             console.log(res.data.data)
             setexams(res.data.data)
-        }).catch(err=>{
+        }).catch(err => {
             console.log(err)
         })
     }
 
-    const deleteExam = (examId) =>{
-        axios.delete(`http://localhost:8080/exams/${examId}`).then(res=>{
-            console.log(res.data.data)
-        }).catch(err=>{
-            console.log(err)
-        })
+    const deleteExam = (examId) => {
+        if (!auth) {
+            navigate('/login')
+        }
+        else {
+            axios.delete(`http://localhost:8080/exams/${examId}`).then(res => {
+                console.log(res.data.data)
+            }).catch(err => {
+                console.log(err)
+            })
+        }
     }
 
     useEffect(() => {
         getExams()
         getSubject()
     }, [])
-    
 
-    
-  return (
-    <div className="container-xxl py-5">
+
+
+    return (
+        <div className="container-xxl py-5">
             <div className="container">
                 <div className="row g-0 gx-5 align-items-end">
                     <div className="col-lg-6">
                         <div className="text-start mx-auto mb-5 wow slideInLeft" data-wow-delay="0.1s">
-                        <h1 className="mb-3">{subject.subjectName} Exams</h1>
+                            <h1 className="mb-3">{subject.subjectName} Exams</h1>
                             <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit diam justo sed rebum.</p>
                         </div>
                     </div>
@@ -110,5 +117,5 @@ export const ExamsOfSubject = () => {
                 </div>
             </div>
         </div>
-  )
+    )
 }

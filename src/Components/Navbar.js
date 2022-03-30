@@ -43,7 +43,7 @@ export const Navbar = () => {
                     <Link to="/signup" className="btn btn-primary px-3 d-none d-lg-flex">Sign Up</Link>
                     </div>
                     <div className='m-3'>
-                    <Link to="/logout" className="btn btn-primary px-3 d-none d-lg-flex" onClick={logout}>Logout</Link>
+                    <Link to="/" className="btn btn-primary px-3 d-none d-lg-flex" onClick={logout}>Logout</Link>
                     </div>
                 </div>
             </nav>

@@ -67,10 +67,10 @@ export const ViewOneExam = () => {
                     </thead>
                     <tbody>
                         {
-                            questions.map((question) => {
+                            questions.map((question,index) => {
                                 return (
                                     <tr>
-                                        <th scope="row" key={question._id}></th>
+                                        <th scope="row" key={question._id}>{index+1}</th>
                                         <td>{question.questionName}</td>
                                         <td>{question.option1}</td>
                                         <td>{question.option2}</td>

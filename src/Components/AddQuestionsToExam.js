@@ -1,7 +1,6 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-
 
 export const AddQuestionsToExam = () => {
     var navigate = useNavigate()
@@ -13,26 +12,35 @@ export const AddQuestionsToExam = () => {
     const [option3, setoption3] = useState('')
     const [option4, setoption4] = useState('')
     const [answer, setanswer] = useState('')
+    var auth = localStorage.getItem('email')
+
+    useEffect(() => {
+        {
+            if (!auth) {
+                navigate('/login')
+            }
+        }
+    }, [])
 
     const submitHandler = (e) => {
         var question = {
-            questionName:questionName,
-            option1:option1,
-            option2:option2,
-            option3:option3,
-            option4:option4,
-            answer:answer
+            questionName: questionName,
+            option1: option1,
+            option2: option2,
+            option3: option3,
+            option4: option4,
+            answer: answer
         }
         e.preventDefault()
-        axios.post(`http://localhost:8080/exams/${examId}/questions`,question).then(res=>{
+        axios.post(`http://localhost:8080/exams/${examId}/questions`, question).then(res => {
             console.log(res.data.data)
-        }).catch(err=>{
+        }).catch(err => {
             console.log(err)
         })
         navigate(`/exam/${examId}`)
     }
-  return (
-     <section className="vh-100" >
+    return (
+        <section className="vh-100" >
             <div className="container h-100">
                 <div className="row d-flex justify-content-center align-items-center h-100">
                     <div className="col-lg-12 col-xl-11">
@@ -48,7 +56,7 @@ export const AddQuestionsToExam = () => {
                                             <div className="d-flex flex-row align-items-center mb-4">
                                                 <i className="fas fa-user fa-lg me-3 fa-fw"></i>
                                                 <div className="form-outline flex-fill mb-0">
-                                                    <input type="text" name="questionName" id="questionName" onChange={(e) => { setquestionName(e.target.value)}} className="form-control" />
+                                                    <input type="text" name="questionName" id="questionName" onChange={(e) => { setquestionName(e.target.value) }} className="form-control" />
                                                     <label className="form-label" for="questionName">Question</label>
                                                 </div>
                                             </div>
@@ -88,19 +96,19 @@ export const AddQuestionsToExam = () => {
                                             <div className="d-flex flex-row align-items-center mb-4">
                                                 <i className="fas fa-key fa-lg me-3 fa-fw"></i>
                                                 <div className="form-outline flex-fill mb-0">
-                                                <select className="form-select" name="answer" id='answer' aria-label="Default select example" onChange={(e) => { setanswer(e.target.value) }}>
-                                                   {/* { 
+                                                    <select className="form-select" name="answer" id='answer' aria-label="Default select example" onChange={(e) => { setanswer(e.target.value) }}>
+                                                        {/* { 
                                                      subjectList.map((subject)=>{
                                                          return ( */}
-                                                             <option value={option1}>{option1}</option>
-                                                             <option value={option2}>{option2}</option>
-                                                             <option value={option3}>{option3}</option>
-                                                             <option value={option4}>{option4}</option>
-                                                         {/* )
+                                                        <option value={option1}>{option1}</option>
+                                                        <option value={option2}>{option2}</option>
+                                                        <option value={option3}>{option3}</option>
+                                                        <option value={option4}>{option4}</option>
+                                                        {/* )
                                                      })
                                                    }     */}
-                                                </select>
-                                                <label className="form-label" for="subject">Answer</label>
+                                                    </select>
+                                                    <label className="form-label" for="subject">Answer</label>
                                                 </div>
                                             </div>
 
@@ -118,5 +126,5 @@ export const AddQuestionsToExam = () => {
                 </div>
             </div>
         </section>
-  )
+    )
 }

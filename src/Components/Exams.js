@@ -77,9 +77,9 @@ export const Exams = () => {
                                         <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s" key={exam._id}>
                                             <div className="property-item rounded overflow-hidden">
                                                 <div className="position-relative overflow-hidden">
-                                                    <Link to={`/exam/${exam._id}`}><img className="img-fluid" src='img/property-1.jpg' alt="" /></Link>
-                                                    <div className="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For Rent</div>
-                                                    <div className="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">Shop</div>
+                                                    <Link to={`/exam/${exam._id}`}><img className="img-fluid" src='img/exam/exam.png' alt="" /></Link>
+                                                    {/* <div className="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For Rent</div> */}
+                                                    {/* <div className="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">Shop</div> */}
                                                 </div>
                                                 <div className="p-4 pb-0">
                                                     {/* <h5 className="text-primary mb-3">{exam.subject.subjectName}</h5> */}
@@ -87,9 +87,9 @@ export const Exams = () => {
                                                     <p><i className="fa fa-map-marker-alt text-primary me-2"></i>{exam.subject.subjectName}</p>
                                                 </div>
                                                 <div className="d-flex border-top">
-                                                    <small className="flex-fill text-center border-end py-2"><i className="fa fa-ruler-combined text-primary me-2"></i>{exam.totalQuestions} Questions</small>
-                                                    <small className="flex-fill text-center border-end py-2"><i className="fa fa-bed text-primary me-2"></i><Link to={`/exams/${exam._id}`}>Update Exam</Link></small>
-                                                    <small className="flex-fill text-center py-2"><i className="fa fa-bath text-primary me-2"></i><Link to='/exams' onClick={(e) => { deleteExam(exam._id) }}>Delete Exam</Link></small>
+                                                    <small className="flex-fill text-center border-end py-2"><i className="fa fa-question text-primary me-2"></i>{exam.totalQuestions} Questions</small>
+                                                    <small className="flex-fill text-center border-end py-2"><i className="fa fa-edit text-primary me-2"></i><Link to={`/exams/${exam._id}`}>Update Exam</Link></small>
+                                                    <small className="flex-fill text-center py-2"><i className="fa fa-trash text-primary me-2"></i><Link to='/exams' onClick={(e) => { deleteExam(exam._id) }}>Delete Exam</Link></small>
                                                     <ToastContainer
                                                         position="bottom-right"
                                                         autoClose={5000}

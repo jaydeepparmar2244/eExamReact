@@ -10,7 +10,7 @@ export const Contact = () => {
                         <div className="bg-white rounded p-4" id='a'>
                             <div className="row g-5 align-items-center">
                                 <div className="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                                    <img className="img-fluid rounded w-100" src="img/call-to-action.jpg" alt="" />
+                                    <img className="img-fluid rounded w-100" src="img/exam/agent.jpeg" alt="" />
                                 </div>
                                 <div className="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                                     <div className="mb-4">

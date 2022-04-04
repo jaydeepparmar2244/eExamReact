@@ -8,9 +8,9 @@ export const Footer = () => {
                 <div className="row g-5">
                     <div className="col-lg-3 col-md-6">
                         <h5 className="text-white mb-4">Get In Touch</h5>
-                        <p className="mb-2"><i className="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                        <p className="mb-2"><i className="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                        <p className="mb-2"><i className="fa fa-envelope me-3"></i>info@example.com</p>
+                        <p className="mb-2"><i className="fa fa-map-marker-alt me-3"></i>Khedbramha, Sabarkantha, Gujarat</p>
+                        <p className="mb-2"><i className="fa fa-phone-alt me-3"></i>+91 6354837943</p>
+                        <p className="mb-2"><i className="fa fa-envelope me-3"></i>examKiller@gmail.com</p>
                         <div className="d-flex pt-2">
                             <a className="btn btn-outline-light btn-social" href="/#"><i className="fab fa-twitter"></i></a>
                             <a className="btn btn-outline-light btn-social" href="/#"><i className="fab fa-facebook-f"></i></a>
@@ -30,22 +30,22 @@ export const Footer = () => {
                         <h5 className="text-white mb-4">Photo Gallery</h5>
                         <div className="row g-2 pt-2">
                             <div className="col-4">
-                                <img className="img-fluid rounded bg-light p-1" src="img/property-1.jpg" alt=""/>
+                                <img className="img-fluid rounded bg-light p-1" src="img/exam/2152177.jpg" alt=""/>
                             </div>
                             <div className="col-4">
-                                <img className="img-fluid rounded bg-light p-1" src="img/property-2.jpg" alt=""/>
+                                <img className="img-fluid rounded bg-light p-1" src="img/exam/a.jpg" alt=""/>
                             </div>
                             <div className="col-4">
-                                <img className="img-fluid rounded bg-light p-1" src="img/property-3.jpg" alt=""/>
+                                <img className="img-fluid rounded bg-light p-1" src="img/exam/5187554.jpg" alt=""/>
                             </div>
                             <div className="col-4">
-                                <img className="img-fluid rounded bg-light p-1" src="img/property-4.jpg" alt=""/>
+                                <img className="img-fluid rounded bg-light p-1" src="img/exam/b.jpg" alt=""/>
                             </div>
                             <div className="col-4">
-                                <img className="img-fluid rounded bg-light p-1" src="img/property-5.jpg" alt=""/>
+                                <img className="img-fluid rounded bg-light p-1" src="img/exam/hehehe.jpg" alt=""/>
                             </div>
                             <div className="col-4">
-                                <img className="img-fluid rounded bg-light p-1" src="img/property-6.jpg" alt=""/>
+                                <img className="img-fluid rounded bg-light p-1" src="img/exam/eexam.png" alt=""/>
                             </div>
                         </div>
                     </div>
@@ -63,7 +63,7 @@ export const Footer = () => {
                 <div className="copyright">
                     <div className="row">
                         <div className="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a className="border-bottom" href="/#">Your Site Name</a>, All Right Reserved. 
+                            &copy; <a className="border-bottom" href="/#">ExamKiller</a>, All Right Reserved. 
 							Designed By <a className="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
                         </div>
                         <div className="col-md-6 text-center text-md-end">

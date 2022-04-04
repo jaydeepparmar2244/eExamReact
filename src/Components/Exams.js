@@ -55,7 +55,7 @@ export const Exams = () => {
                         </div>
                     </div>
                     <div className="col-lg-6 text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
-                        <ul className="nav nav-pills d-inline-flex justify-content-end mb-5">
+                        {/* <ul className="nav nav-pills d-inline-flex justify-content-end mb-5">
                             <li className="nav-item me-2">
                                 <a className="btn btn-outline-primary active" data-bs-toggle="pill" href="#tab-1">Featured</a>
                             </li>
@@ -65,7 +65,7 @@ export const Exams = () => {
                             <li className="nav-item me-0">
                                 <a className="btn btn-outline-primary" data-bs-toggle="pill" href="#tab-3">For Rent</a>
                             </li>
-                        </ul>
+                        </ul> */}
                     </div>
                 </div>
                 <div className="tab-content">
@@ -108,7 +108,7 @@ export const Exams = () => {
                                 }))
                             }
                             <div className="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
-                                <a className="btn btn-primary py-3 px-5" href="/#">Browse More Property</a>
+                                <a className="btn btn-primary py-3 px-5" href="/#">Browse More Exams</a>
                             </div>
                         </div>
                     </div>

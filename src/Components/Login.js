@@ -21,6 +21,7 @@ export const Login = () => {
 				localStorage.setItem('role',res.data.data.role.roleName);
 				localStorage.setItem('firstName',res.data.data.firstName)
 				localStorage.setItem('lastName',res.data.data.lastName)
+				localStorage.setItem('isLoggedIn',true)
 				toast.success(res.data.msg, {
 					position: "bottom-right",
 					autoClose: 5000,
@@ -101,7 +102,7 @@ export const Login = () => {
 										Remember me
 									</label>
 								</div>
-								<a href="#!" className="text-body">Forgot password?</a>
+								<Link to="/forgotPassword" className="text-body">Forgot password?</Link>
 							</div>
 
 							<div className="text-center text-lg-start mt-4 pt-2">

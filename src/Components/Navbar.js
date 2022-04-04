@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 
 export const Navbar = () => {
@@ -7,6 +7,15 @@ export const Navbar = () => {
     const logout = () => {
         localStorage.clear();
     }
+
+    // const isLoggedIn = () =>{
+    //     localStorage.getItem('email')
+    // }
+
+    // useEffect(() => {
+    //   isLoggedIn()
+    // }, [])
+    
 
     return (
         <div className="container-fluid nav-bar bg-transparent bg-white">
@@ -37,18 +46,14 @@ export const Navbar = () => {
                         <a href="contact.html" className="nav-item nav-link">Contact</a>
 
                     </div>
-                        <div className='m-3'>
+                        {localStorage.getItem('isLoggedIn')===null?<><div className='m-3'>
                         <Link to="/login" className="btn btn-primary px-3 d-none d-lg-flex">Login</Link>
                         </div>
-                        <>
                         <div>
                         <Link to="/signup" className="btn btn-primary px-3 d-none d-lg-flex">Sign Up</Link>
-                        </div>
-                        <div className='m-3'>
-                        <Link to="/logout" className="btn btn-primary px-3 d-none d-lg-flex" onClick={logout}>Logout</Link>
-                        </div>
-                        </> 
-
+                        </div></>: <div className='m-3'><Link to="/logout" className="btn btn-primary px-3 d-none d-lg-flex" onClick={logout}>Logout</Link>
+                        </div>}
+                        {/* {console.log(localStorage.getItem('isLoggedIn'))} */}
                 </div>
             </nav>
         </div>

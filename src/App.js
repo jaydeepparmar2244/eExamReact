@@ -16,6 +16,8 @@ import { ViewOneExam } from './Components/ViewOneExam';
 import { AddQuestionsToExam } from './Components/AddQuestionsToExam';
 import { UpdateQuestion } from './Components/UpdateQuestion';
 import { ExamsOfSubject } from './Components/ExamsOfSubject';
+import { ResetPassword } from './Components/ResetPassword';
+import { ResetPasswordButton } from './Components/ResetPasswordButton';
 // import { Spinner } from './Components/Spinner';
 function App() {
   return (
@@ -37,6 +39,8 @@ function App() {
         <Route path='/exam/:examId/questions' element={<AddQuestionsToExam/>}></Route>
         <Route path='/exam/:examId/question/:questionId' element={<UpdateQuestion/>}></Route>
         <Route path='/subject/:subjectId/exams' element={<ExamsOfSubject/>}></Route>
+        <Route path='/forgotPassword' element={<ResetPasswordButton/>}></Route>
+        <Route path='/reset/:token' element={<ResetPassword/>}></Route>
       </Routes>
       <Footer/>
       <BackToTop/>

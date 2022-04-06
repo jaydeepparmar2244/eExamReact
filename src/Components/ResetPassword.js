@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react'
+import { toast, ToastContainer } from 'react-toastify'
 
 export const ResetPassword = () => {
     const [password, setpassword] = useState('')
@@ -8,12 +9,21 @@ export const ResetPassword = () => {
     const resetPassword = (e) => {
         e.preventDefault();
         var data = {
-            password :password,
-            email :email
+            password: password,
+            email: email
         }
-        axios.post('http://localhost:8080/reset', data).then(res=>{
-            console.log(res.data.data)
-        }).then(err=>{
+        axios.post('http://localhost:8080/reset', data).then(res => {
+            console.log(res.data)
+            toast.info(res.data.msg, {
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: 0,
+            });
+        }).then(err => {
             console.log(err)
         })
     }
@@ -50,6 +60,17 @@ export const ResetPassword = () => {
                                             <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                                                 <button type="submit" className="btn btn-primary btn-lg">Reset Password</button>
                                             </div>
+                                            <ToastContainer
+                                                position="bottom-right"
+                                                autoClose={5000}
+                                                hideProgressBar
+                                                newestOnTop={false}
+                                                closeOnClick
+                                                rtl={false}
+                                                pauseOnFocusLoss
+                                                draggable
+                                                pauseOnHover
+                                            />
 
                                         </form>
 

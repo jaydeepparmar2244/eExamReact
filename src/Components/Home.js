@@ -13,9 +13,9 @@ export const Home = () => {
         <React.Fragment>
             <Header />
             <Search />
-            <Subjects />
-            <About />
             <Exams />
+            <About />
+            <Subjects />
             <Contact />
             <Team />
             <Testimonial />

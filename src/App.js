@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Navbar } from './Components/Navbar';
 import { Subjects } from './Components/Subjects';
 import { Exams } from './Components/Exams';
@@ -17,6 +17,7 @@ import { UpdateQuestion } from './Components/UpdateQuestion';
 import { ExamsOfSubject } from './Components/ExamsOfSubject';
 import { ResetPassword } from './Components/ResetPassword';
 import { ResetPasswordButton } from './Components/ResetPasswordButton';
+
 // import { Spinner } from './Components/Spinner';
 function App() {
   return (
@@ -41,6 +42,8 @@ function App() {
         <Route path='/forgotPassword' element={<ResetPasswordButton/>}></Route>
         <Route path='/reset/:token' element={<ResetPassword/>}></Route>
       </Routes>
+      
+      
       <Footer/>
       <BackToTop/>
       {/* </div> */}

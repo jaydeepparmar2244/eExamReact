@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Spinner } from './Spinner';
 
 export const Exams = () => {
     const [examList, setexamList] = useState([]);
@@ -45,6 +46,8 @@ export const Exams = () => {
 
 
     return (
+        <>
+        <Spinner/>
         <div className="container-xxl py-5">
             <div className="container">
                 <div className="row g-0 gx-5 align-items-end">
@@ -115,5 +118,6 @@ export const Exams = () => {
                 </div>
             </div>
         </div>
+        </>
     )
 }

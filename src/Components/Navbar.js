@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link,useNavigate } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify';
 
+
 export const Navbar = () => {
+    // const [Loading, setLoading] = useState(true)
     var navigate = useNavigate();
 
     const logout = () => {
         localStorage.clear();
+        // setLoading(!Loading);
         toast.success("You're Logged Out!", {
             position: "bottom-right",
             autoClose: 5000,

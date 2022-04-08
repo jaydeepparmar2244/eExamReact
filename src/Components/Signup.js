@@ -135,7 +135,7 @@ export const Signup = () => {
                                                 <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                                 <div className="form-outline flex-fill mb-0">
                                                     {email.includes('@') ? "":"Enter Correct Email ID"}
-                                                    <input type="email" id="email" name='email' className="form-control" onChange={(e)=>{emailHandler(e)}}/>
+                                                    <input type="email" id="email" name='email' className="form-control" onChange={(e)=>{emailHandler(e)}} required/>
                                                     <label className="form-label" for="email">Your Email</label>
                                                 </div>
                                             </div>

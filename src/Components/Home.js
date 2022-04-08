@@ -13,7 +13,7 @@ export const Home = () => {
         <React.Fragment>
             <Header />
             <Search />
-            <Exams />
+            {/* <Exams /> */}
             <About />
             <Subjects />
             <Contact />

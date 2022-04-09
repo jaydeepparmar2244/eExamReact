@@ -38,7 +38,7 @@ export const Navbar = () => {
             <nav className="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
                 <Link to="/" className="navbar-brand d-flex align-items-center text-center">
                     <div className="icon p-2 me-2">
-                        <img className="img-fluid" src='../img/exam/logo.png' alt="Icon" style={{ width: "30px", height: "30px" }} />
+                        <img className="img-fluid" src='/img/exam/logo.png' alt="Icon" style={{ width: "30px", height: "30px" }} />
                     </div>
                     <h1 className="m-0 text-primary">ExamKiller</h1>
                 </Link>

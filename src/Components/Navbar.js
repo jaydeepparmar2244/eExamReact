@@ -62,6 +62,13 @@ export const Navbar = () => {
                         {/* <a href="contact.html" className="nav-item nav-link">Contact</a> */}
 
                     </div>
+                    <Link to='/'>
+                    <div className="icon p-2 me-2">
+                        <img className="img-fluid" src='/img/exam/logo.png' alt="Icon" style={{ width: "30px", height: "30px" }} />
+                        {localStorage.getItem('firstName')}
+                    </div>
+                    </Link>
+                    
                         {localStorage.getItem('isLoggedIn')===null?<><div className='m-3'>
                         <Link to="/login" className="btn btn-primary px-3 d-none d-lg-flex">Login</Link>
                         </div>

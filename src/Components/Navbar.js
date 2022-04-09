@@ -6,6 +6,7 @@ import { toast, ToastContainer } from 'react-toastify';
 export const Navbar = () => {
     // const [Loading, setLoading] = useState(true)
     var navigate = useNavigate();
+    // var userId = localStorage.getItem('userId');
 
     const logout = () => {
         localStorage.clear();
@@ -62,7 +63,7 @@ export const Navbar = () => {
                         {/* <a href="contact.html" className="nav-item nav-link">Contact</a> */}
 
                     </div>
-                    <Link to='/'>
+                    <Link to={`/profile/${localStorage.getItem('userId')}`}>
                     <div className="icon p-2 me-2">
                         <img className="img-fluid" src='/img/exam/logo.png' alt="Icon" style={{ width: "30px", height: "30px" }} />
                         {localStorage.getItem('firstName')}

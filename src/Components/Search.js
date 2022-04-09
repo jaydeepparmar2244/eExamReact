@@ -115,14 +115,15 @@ export const Search = () => {
                                                     {/* <div className="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">Shop</div> */}
                                                 </div>
                                                 <div className="p-4 pb-0">
-                                                    {/* <h5 className="text-primary mb-3">{exam.subject.subjectName}</h5> */}
+                                                    <h6 className="text-primary mb-3">{exam.subject.subjectName}</h6>
                                                     <Link className="d-block h5 mb-2" to={`/exam/${exam._id}`}>{exam.examName}</Link>
-                                                    <p><i className="fa fa-map-marker-alt text-primary me-2"></i>{exam.subject.subjectName}</p>
+                                                    <p><i className="fa fa-question text-primary me-2"></i>{exam.totalQuestions} Questions</p>
                                                 </div>
                                                 <div className="d-flex border-top">
-                                                    <small className="flex-fill text-center border-end py-2"><i className="fa fa-question text-primary me-2"></i>{exam.totalQuestions} Questions</small>
+                                                   
+                                                    {localStorage.getItem('isLoggedIn')===null || localStorage.getItem('role')==='Student'?"":<>
                                                     <small className="flex-fill text-center border-end py-2"><i className="fa fa-edit text-primary me-2"></i><Link to={`/exams/${exam._id}`}>Update Exam</Link></small>
-                                                    <small className="flex-fill text-center py-2"><i className="fa fa-trash text-primary me-2"></i><Link to='/exams' onClick={(e) => { deleteExam(exam._id) }}>Delete Exam</Link></small>
+                                                    <small className="flex-fill text-center py-2"><i className="fa fa-trash text-primary me-2"></i><Link to='/exams' onClick={(e) => { deleteExam(exam._id) }}>Delete Exam</Link></small></>}
                                                     <ToastContainer
                                                         position="bottom-right"
                                                         autoClose={5000}

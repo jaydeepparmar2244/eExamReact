@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 
 export const UserProfile = () => {
     var userId = useParams().userId;
-    const [userDetail, setuserDetail] = useState('')
+    const [userDetail, setuserDetail] = useState([])
     const getUserDetail = () =>{
         axios.get(`http://localhost:8080/users/${userId}`).then(res=>{
             console.log(res.data.data)
@@ -16,7 +16,7 @@ export const UserProfile = () => {
 
     useEffect(() => {
       getUserDetail()
-    }, '')
+    }, [])
     
   return (
  <section style={{backgroundColor: '#eee'}}>
@@ -38,7 +38,7 @@ export const UserProfile = () => {
           <div className="card-body text-center">
             <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar" className="rounded-circle img-fluid" style={{width: 150}} />
             <h5 className="my-3">{userDetail.firstName}</h5>
-            <p className="text-muted mb-1">{userDetail.role.roleName}</p>
+            <p className="text-muted mb-1">{localStorage.getItem('role')}</p>
             <p className="text-muted mb-4">Bay Area, San Francisco, CA</p>
             <div className="d-flex justify-content-center mb-2">
               <button type="button" className="btn btn-primary">Follow</button>

@@ -56,7 +56,7 @@ export const ExamsOfSubject = () => {
                             <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit diam justo sed rebum.</p>
                         </div>
                     </div>
-                    <div className="col-lg-6 text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
+                    {/* <div className="col-lg-6 text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
                         <ul className="nav nav-pills d-inline-flex justify-content-end mb-5">
                             <li className="nav-item me-2">
                                 <a className="btn btn-outline-primary active" data-bs-toggle="pill" href="#tab-1">Featured</a>
@@ -68,7 +68,7 @@ export const ExamsOfSubject = () => {
                                 <a className="btn btn-outline-primary" data-bs-toggle="pill" href="#tab-3">For Rent</a>
                             </li>
                         </ul>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="tab-content">
                     <div id="tab-1" className="tab-pane fade show p-0 active">
@@ -84,14 +84,15 @@ export const ExamsOfSubject = () => {
                                                     {/* <div className="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">Shop</div> */}
                                                 </div>
                                                 <div className="p-4 pb-0">
-                                                    {/* <h5 className="text-primary mb-3">{exam.subject.subjectName}</h5> */}
+                                                    <h6 className="text-primary mb-3">{exam.subject.subjectName}</h6>
                                                     <Link className="d-block h5 mb-2" to={`/exam/${exam._id}`}>{exam.examName}</Link>
-                                                    <p><i className="fa fa-map-marker-alt text-primary me-2"></i>{exam.subject.subjectName}</p>
+                                                    <p><i className="fa fa-question text-primary me-2"></i>{exam.totalQuestions} Questions</p>
                                                 </div>
                                                 <div className="d-flex border-top">
-                                                    <small className="flex-fill text-center border-end py-2"><i className="fa fa-question text-primary me-2"></i>{exam.totalQuestions} Questions</small>
+                                                   
+                                                    {localStorage.getItem('isLoggedIn')===null || localStorage.getItem('role')==='Student'?"":<>
                                                     <small className="flex-fill text-center border-end py-2"><i className="fa fa-edit text-primary me-2"></i><Link to={`/exams/${exam._id}`}>Update Exam</Link></small>
-                                                    <small className="flex-fill text-center py-2"><i className="fa fa-trash text-primary me-2"></i><Link to='/exams' onClick={(e) => { deleteExam(exam._id) }}>Delete Exam</Link></small>
+                                                    <small className="flex-fill text-center py-2"><i className="fa fa-trash text-primary me-2"></i><Link to='/exams' onClick={(e) => { deleteExam(exam._id) }}>Delete Exam</Link></small></>}
                                                     <ToastContainer
                                                         position="bottom-right"
                                                         autoClose={5000}

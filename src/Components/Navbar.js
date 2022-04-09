@@ -51,8 +51,7 @@ export const Navbar = () => {
                         <Link to="/" className="nav-item nav-link active">Home</Link>
                         <Link to="/exams" className="nav-item nav-link">Exams</Link>
                         <Link to="/subjects" className="nav-item nav-link">Subjects</Link>
-                        <Link to="/exam/new" className="nav-item nav-link">Add Exam</Link>
-                        <Link to="/subject/new" className="nav-item nav-link">Add Subject</Link>
+                        {localStorage.getItem('role')==='Admin'?<Link to="/subject/new" className="nav-item nav-link">Add Subject</Link>:""}
                         {/* <div className="nav-item dropdown">
                             <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                             <div className="dropdown-menu rounded-0 m-0">
@@ -63,20 +62,19 @@ export const Navbar = () => {
                         {/* <a href="contact.html" className="nav-item nav-link">Contact</a> */}
 
                     </div>
-                    <Link to={`/profile/${localStorage.getItem('userId')}`}>
-                    <div className="icon p-2 me-2">
-                        <img className="img-fluid" src='/img/exam/logo.png' alt="Icon" style={{ width: "30px", height: "30px" }} />
-                        {localStorage.getItem('firstName')}
-                    </div>
-                    </Link>
-                    
+                
                         {localStorage.getItem('isLoggedIn')===null?<><div className='m-3'>
                         <Link to="/login" className="btn btn-primary px-3 d-none d-lg-flex">Login</Link>
                         </div>
                         <div>
                         <Link to="/signup" className="btn btn-primary px-3 d-none d-lg-flex">Sign Up</Link>
-                        </div></>: <div className='m-3'><Link to="/" className="btn btn-primary px-3 d-none d-lg-flex" onClick={logout}>Logout</Link>
-                        </div>}
+                        </div></>: <><Link to={`/profile/${localStorage.getItem('userId')}`}>
+                    <div className="icon p-2 me-2">
+                        <img className="img-fluid" src='/img/exam/logo.png' alt="Icon" style={{ width: "30px", height: "30px" }} />
+                        {localStorage.getItem('firstName')}
+                    </div>
+                    </Link><div className='m-3'><Link to="/" className="btn btn-primary px-3 d-none d-lg-flex" onClick={logout}>Logout</Link>
+                        </div></>}
                         <ToastContainer
 								position="bottom-right"
 								autoClose={5000}

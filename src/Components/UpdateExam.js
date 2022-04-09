@@ -9,10 +9,11 @@ export const UpdateExam = () => {
     const [totalQuestions, settotalQuestions] = useState(exam.totalQuestions)
     const [isActive, setisActive] = useState(exam.isActive)
     const [subject, setsubject] = useState(exam.subject)
+    const [author, setAuthor] = useState(exam.author)
     const [subjectList, setsubjectList] = useState([])
 
     var navigate = useNavigate()
-    var auth = localStorage.getItem('email')
+    var auth = localStorage.getItem('isLoggedIn')
 
     const getExams = () =>{
         axios.get(`http://localhost:8080/exams/${examId}`).then(res=>{
@@ -48,8 +49,6 @@ export const UpdateExam = () => {
         }
     }, [])
     
-    
-    
     const examNameHandler = (e) =>{
         setexamName(e.target.value)
     }
@@ -69,7 +68,8 @@ export const UpdateExam = () => {
             examName:examName,
             totalQuestions:totalQuestions,
             isActive:isActive,
-            subject:subject
+            subject:subject,
+            author:author
         }
         axios.put(`http://localhost:8080/exams/${examId}`,data).then(res=>{
             console.log(res.data.data)

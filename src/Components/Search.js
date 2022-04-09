@@ -120,10 +120,11 @@ export const Search = () => {
                                                     <p><i className="fa fa-question text-primary me-2"></i>{exam.totalQuestions} Questions</p>
                                                 </div>
                                                 <div className="d-flex border-top">
+                                                   {/* {exam.author._id} */}
                                                    
-                                                    {localStorage.getItem('isLoggedIn')===null || localStorage.getItem('role')==='Student'?"":<>
+                                                    {localStorage.getItem('userId')=== exam.author._id || localStorage.getItem('role') === 'Admin' ?<>
                                                     <small className="flex-fill text-center border-end py-2"><i className="fa fa-edit text-primary me-2"></i><Link to={`/exams/${exam._id}`}>Update Exam</Link></small>
-                                                    <small className="flex-fill text-center py-2"><i className="fa fa-trash text-primary me-2"></i><Link to='/exams' onClick={(e) => { deleteExam(exam._id) }}>Delete Exam</Link></small></>}
+                                                    <small className="flex-fill text-center py-2"><i className="fa fa-trash text-primary me-2"></i><Link to='/exams' onClick={(e) => { deleteExam(exam._id) }}>Delete Exam</Link></small></>:""}
                                                     <ToastContainer
                                                         position="bottom-right"
                                                         autoClose={5000}

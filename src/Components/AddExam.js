@@ -7,6 +7,7 @@ export const AddExam = () => {
     const [totalQuestions, settotalQuestions] = useState('')
     const [isActive, setisActive] = useState('true')
     const [subject, setsubject] = useState('6244443a29312c4ecc04197b')
+    const [author, setauthor] = useState(localStorage.getItem('userId'))
     const [subjectList, setsubjectList] = useState([])
     var auth = localStorage.getItem('email')
     var navigate = useNavigate()
@@ -48,7 +49,8 @@ export const AddExam = () => {
             examName: examName,
             totalQuestions: totalQuestions,
             isActive: isActive,
-            subject: subject
+            subject: subject,
+            author:author
         }
         axios.post('http://localhost:8080/exams', data).then(res => {
             console.log(res.data)

@@ -5,23 +5,12 @@ import { Link, useParams } from 'react-router-dom'
 export const ViewOneExam = () => {
     var examId = useParams().examId
     const [exam, setexam] = useState('')
-    const [questions, setquestions] = useState([])
 
     const getOneExam = () => {
         axios.get(`http://localhost:8080/exams/${examId}`).then(res => {
             console.log(res.data.data)
             setexam(res.data.data)
-            setquestions(res.data.data.questions)
-            console.log(res.data.data.questions)
         }).catch(err => {
-            console.log(err)
-        })
-    }
-
-    const deleteQuestion = (qId) => {
-        axios.delete(`http://localhost:8080/exams/${examId}/questions/${qId}`).then(res=>{
-            console.log(res.data.data)
-        }).catch(err=>{
             console.log(err)
         })
     }
@@ -30,8 +19,8 @@ export const ViewOneExam = () => {
         getOneExam()
     }, [])
 
-    return (
-        <div className="container-xxl py-5">
+  return (
+    <div className="container-xxl py-5">
             <div className="container">
                 <div className="row g-0 gx-5 align-items-end">
                     <div className="col-lg-6">
@@ -50,43 +39,12 @@ export const ViewOneExam = () => {
                             </li>
                         </ul>
                     </div>
+                    <div className='col-lg-7 text-start text-lg-end wow slideInRight'>
+                    <button className='btn btn-primary'>Start Exam</button>
+                    </div>
                 </div>
-                <table className="table auto-index">
-                    <thead>
-                        <tr>
-                            <th scope="col">Sr No.</th>
-                            <th scope="col">Question</th>
-                            <th scope="col">Option-1</th>
-                            <th scope="col">Option-2</th>
-                            <th scope="col">Option-3</th>
-                            <th scope="col">Option-4</th>
-                            <th scope="col">Answer</th>
-                            <th scope="col">Update</th>
-                            <th scope="col">Delete</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            questions.map((question,index) => {
-                                return (
-                                    <tr>
-                                        <th scope="row" key={question._id}>{index+1}</th>
-                                        <td>{question.questionName}</td>
-                                        <td>{question.option1}</td>
-                                        <td>{question.option2}</td>
-                                        <td>{question.option3}</td>
-                                        <td>{question.option4}</td>
-                                        <td>{question.answer}</td>
-                                        <td><Link to={`/exam/${exam._id}/question/${question._id}`} className='btn btn-dark'>Update</Link></td>
-                                        <td><Link to={`/exam/${exam._id}`} className='btn btn-danger' onClick={(e) => { deleteQuestion(question._id) }}>Delete</Link></td>
-                                    </tr>
-                                )
-                            })
-                        }
-                    </tbody>
-                </table>
 
             </div>
         </div>
-    )
+  )
 }

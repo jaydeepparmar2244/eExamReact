@@ -7,6 +7,7 @@ export const UpdateExam = () => {
     const [exam, setexam] = useState([])
     const [examName, setexamName] = useState(exam.examName)
     const [totalQuestions, settotalQuestions] = useState(exam.totalQuestions)
+    const [totalMarks, setTotalMarks] = useState(exam.totalMarks)
     const [isActive, setisActive] = useState(exam.isActive)
     const [subject, setsubject] = useState(exam.subject)
     const [author, setAuthor] = useState(exam.author)
@@ -55,6 +56,9 @@ export const UpdateExam = () => {
     const totalQuestionsHandler = (e) => {
         settotalQuestions(e.target.value)
     }
+    const totalMarksHandler = (e) =>{
+        setTotalMarks(e.target.value)
+    }
     const isActiveHandler = (e) =>{
         setisActive(e.target.value)
     }
@@ -67,6 +71,7 @@ export const UpdateExam = () => {
             examId:examId,
             examName:examName,
             totalQuestions:totalQuestions,
+            totalMarks:totalMarks,
             isActive:isActive,
             subject:subject,
             author:author
@@ -107,6 +112,14 @@ export const UpdateExam = () => {
                                                 <div className="form-outline flex-fill mb-0">
                                                     <input type="number" name="totalQuestions" id="totalQuestions" defaultValue={exam.totalQuestions} onChange={(e)=>{totalQuestionsHandler(e)}} className="form-control" />
                                                     <label className="form-label" htmlFor="totalQuestions">Total Questions</label>
+                                                </div>
+                                            </div>
+
+                                            <div className="d-flex flex-row align-items-center mb-4">
+                                                <i className="fas fa-user fa-lg me-3 fa-fw"></i>
+                                                <div className="form-outline flex-fill mb-0">
+                                                    <input type="number" name="totalMarks" id="totalMarks" defaultValue={exam.totalMarks} onChange={(e)=>{totalMarksHandler(e)}} className="form-control" />
+                                                    <label className="form-label" htmlFor="totalMarks">Total Marks</label>
                                                 </div>
                                             </div>
 

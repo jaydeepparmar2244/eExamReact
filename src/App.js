@@ -12,6 +12,7 @@ import { UpdateExam } from './Components/UpdateExam';
 import { BackToTop } from './Components/BackToTop';
 import { Home } from './Components/Home';
 import { ViewOneExam } from './Components/ViewOneExam';
+import {ViewQuestionsOfExam} from './Components/ViewQuestionsOfExam'
 import { AddQuestionsToExam } from './Components/AddQuestionsToExam';
 import { UpdateQuestion } from './Components/UpdateQuestion';
 import { ExamsOfSubject } from './Components/ExamsOfSubject';
@@ -37,6 +38,7 @@ function App() {
         <Route path='/subject/new' element={<AddSubject/>}></Route>
         <Route path='/exams/:examId' element={<UpdateExam/>}></Route>
         <Route path='/exam/:examId' element={<ViewOneExam/>}></Route>
+        <Route path='/exams/:examId/questions' element={<ViewQuestionsOfExam/>}></Route>
         <Route path='/exam/:examId/questions' element={<AddQuestionsToExam/>}></Route>
         <Route path='/exam/:examId/question/:questionId' element={<UpdateQuestion/>}></Route>
         <Route path='/subject/:subjectId/exams' element={<ExamsOfSubject/>}></Route>

@@ -81,12 +81,12 @@ export const Exams = () => {
                                             <div className="property-item rounded overflow-hidden">
                                                 <div className="position-relative overflow-hidden">
                                                     <Link to={`/exam/${exam._id}`}><img className="img-fluid" src='img/exam/exam.png' alt="" /></Link>
-                                                    {/* <div className="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">For Rent</div> */}
-                                                    {/* <div className="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">Shop</div> */}
+                                                    <div className="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">{exam.subject.subjectName}</div>
+                                                    {/* <div className="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">{exam.totalMarks}</div> */}
                                                 </div>
                                                 <div className="p-4 pb-0">
-                                                    <h6 className="text-primary mb-3">{exam.subject.subjectName}</h6>
                                                     <Link className="d-block h5 mb-2" to={`/exam/${exam._id}`}>{exam.examName}</Link>
+                                                    <h6 className="text-primary mb-3">{exam.totalMarks} Marks</h6>
                                                     <p><i className="fa fa-question text-primary me-2"></i>{exam.totalQuestions} Questions</p>
                                                     {/* {localStorage.getItem('userId')} */}
                                                 </div>

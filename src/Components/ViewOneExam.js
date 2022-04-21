@@ -37,6 +37,9 @@ export const ViewOneExam = () => {
                                 <Link className="btn btn-outline-primary" to={`/exam/${examId}/questions`}>Add Questions</Link>
                             </li>
                             <li className="nav-item me-2">
+                                <Link className="btn btn-outline-primary" to={`/exams/${examId}/questions`}>View Questions</Link>
+                            </li>
+                            <li className="nav-item me-2">
                                 <li className="btn btn-outline-primary">Total Time: {exam.examTime} Minutes</li>
                             </li>
                         </ul>

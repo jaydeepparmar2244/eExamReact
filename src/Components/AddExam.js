@@ -1,12 +1,14 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import  { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 export const AddExam = () => {
     const [examName, setexamName] = useState('')
     const [totalQuestions, settotalQuestions] = useState('')
     const [isActive, setisActive] = useState('true')
     const [totalMarks, settotalMarks] = useState('')
+    const [examTime, setexamTime] = useState('')
     const [subject, setsubject] = useState('6244443a29312c4ecc04197b')
     const [author, setauthor] = useState(localStorage.getItem('userId'))
     const [subjectList, setsubjectList] = useState([])
@@ -47,6 +49,10 @@ export const AddExam = () => {
     const subjectHandler = (e) => {
         setsubject(e.target.value)
     }
+
+    const examTimeHandler = (e) =>{
+        setexamTime(e.target.value)
+    }
     const submitHandler = (e) => {
         e.preventDefault();
         var data = {
@@ -55,12 +61,34 @@ export const AddExam = () => {
             isActive: isActive,
             subject: subject,
             author:author,
-            totalMarks:totalMarks
+            totalMarks:totalMarks,
+            examTime:examTime
         }
         axios.post('http://localhost:8080/exams', data).then(res => {
             console.log(res.data)
+            toast.success(res.data.msg, {
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: 0,
+            });
+            setTimeout(() => {
+                navigate('/exams')
+            }, 1000);
         }).catch(err => {
             console.log(err)
+            toast.error(err, {
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: 0,
+            });
         })
     }
     return (
@@ -98,6 +126,14 @@ export const AddExam = () => {
                                                 <div className="form-outline flex-fill mb-0">
                                                     <input type="number" name="totalMarks" id="totalMarks" onChange={(e) => { totalMarksHandler(e) }} className="form-control" />
                                                     <label className="form-label" htmlFor="totalMarks">Total Marks</label>
+                                                </div>
+                                            </div>
+
+                                            <div className="d-flex flex-row align-items-center mb-4">
+                                                <i className="fas fa-user fa-lg me-3 fa-fw"></i>
+                                                <div className="form-outline flex-fill mb-0">
+                                                    <input type="number" name="examTime" id="examTime" onChange={(e) => { examTimeHandler(e) }} className="form-control" />
+                                                    <label className="form-label" htmlFor="examTime">Total Time In Minutes</label>
                                                 </div>
                                             </div>
 

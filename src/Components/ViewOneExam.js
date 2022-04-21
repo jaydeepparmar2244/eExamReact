@@ -1,9 +1,11 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import { StartExam } from './StartExam'
 
 export const ViewOneExam = () => {
     var examId = useParams().examId
+    var userId = localStorage.getItem('userId')
     const [exam, setexam] = useState('')
 
     const getOneExam = () => {
@@ -35,12 +37,25 @@ export const ViewOneExam = () => {
                                 <Link className="btn btn-outline-primary" to={`/exam/${examId}/questions`}>Add Questions</Link>
                             </li>
                             <li className="nav-item me-2">
-                                <a className="btn btn-outline-primary" data-bs-toggle="pill" href="#tab-2">Set Timer</a>
+                                <li className="btn btn-outline-primary">Total Time: {exam.examTime} Minutes</li>
                             </li>
                         </ul>
                     </div>
+                    <div className="col-lg-6">
+                        <h3>Exam Instructions</h3>
+                            <h6>-  You must use a functioning webcam and microphone.<br/>
+                               -  No cell phones or other secondary devices in the room or test area.<br/>
+                               -  Your desk/table must be clear or any materials except your test-taking device.<br/>
+                               -  No one else can be in the room with you.<br/>
+                               -  No talking .<br/>
+                               -  The testing room must be well-lit and you must be clearly visible.<br/>
+                               -  No dual screens/monitors.<br/>
+                               -  Do not leave the camera.<br/>
+                               -  No use of additional applications or internet.
+                               </h6>
+                    </div>
                     <div className='col-lg-7 text-start text-lg-end wow slideInRight'>
-                    <button className='btn btn-primary'>Start Exam</button>
+                    <Link className='btn btn-primary' to={`/exam/${examId}/${userId}`}>Start Exam</Link>
                     </div>
                 </div>
 

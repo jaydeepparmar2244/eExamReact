@@ -22,8 +22,7 @@ export const StartExam = () => {
     useEffect(() => {
         getOneExam()
     }, [])
-   
-
+    
     const handleAnswerButton = (option) => {
         const nextQuestion = currentQuestion + 1;
         if (option == questions[currentQuestion].answer) {
@@ -68,8 +67,8 @@ export const StartExam = () => {
                             <li className="nav-item me-2">
                                 <Link className="btn btn-outline-primary" to={`/exam/${examId}/questions`}>Add Questions</Link>
                             </li>
-                            <li className="nav-item me-2">
-                                <li className="btn btn-outline-primary">Total Time: {exam.examTime} Minutes</li>
+                            <li className="me-2">
+                                <p className="btn btn-primary">Total Time: {exam.examTime} Minutes</p>
                             </li>
                             <h2></h2>
                         </ul>
@@ -86,14 +85,14 @@ export const StartExam = () => {
                                 return (
                                     <>
                                         <div className='question-section'>
-                                            <div className='question-count'>
+                                            <div className='question-count' key={questions[currentQuestion]._id}>
                                                 <h6>Question {currentQuestion + 1}.</h6>
                                                 <h6>{questions[currentQuestion].questionName}</h6>
                                             </div>
 
                                         </div>
                                         <div className="d-grid gap-2 col-6">
-                                            <button className='btn btn-primary text-start px-4' onSelect={() => handleAnswerButton(questions[currentQuestion].option1)}>A) {questions[currentQuestion].option1}</button>
+                                            <button className='btn btn-primary text-start px-4' onClick={() => handleAnswerButton(questions[currentQuestion].option1)}>A) {questions[currentQuestion].option1}</button>
                                             <button className='btn btn-primary text-start px-4' onClick={() => handleAnswerButton(questions[currentQuestion].option2)}>B) {questions[currentQuestion].option2}</button>
                                             <button className='btn btn-primary text-start px-4' onClick={() => handleAnswerButton(questions[currentQuestion].option3)}>C) {questions[currentQuestion].option3}</button>
                                             <button className='btn btn-primary text-start px-4' onClick={() => handleAnswerButton(questions[currentQuestion].option4)}>D) {questions[currentQuestion].option4}</button>

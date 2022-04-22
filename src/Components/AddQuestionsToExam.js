@@ -12,6 +12,7 @@ export const AddQuestionsToExam = () => {
     const [option3, setoption3] = useState('')
     const [option4, setoption4] = useState('')
     const [answer, setanswer] = useState('')
+    const [marks, setmarks] = useState(0)
     var auth = localStorage.getItem('email')
 
     useEffect(() => {
@@ -29,7 +30,8 @@ export const AddQuestionsToExam = () => {
             option2: option2,
             option3: option3,
             option4: option4,
-            answer: answer
+            answer: answer,
+            marks:marks
         }
         e.preventDefault()
         axios.post(`http://localhost:8080/exams/${examId}/questions`, question).then(res => {
@@ -100,6 +102,7 @@ export const AddQuestionsToExam = () => {
                                                         {/* { 
                                                      subjectList.map((subject)=>{
                                                          return ( */}
+                                                        <option>Select Answer</option>
                                                         <option value={option1}>{option1}</option>
                                                         <option value={option2}>{option2}</option>
                                                         <option value={option3}>{option3}</option>
@@ -111,6 +114,15 @@ export const AddQuestionsToExam = () => {
                                                     <label className="form-label" for="subject">Answer</label>
                                                 </div>
                                             </div>
+
+                                            <div className="d-flex flex-row align-items-center mb-4">
+                                                <i className="fas fa-user fa-lg me-3 fa-fw"></i>
+                                                <div className="form-outline flex-fill mb-0">
+                                                    <input type="number" name="marks" id="marks" onChange={(e) => { setmarks(e.target.value) }} className="form-control" />
+                                                    <label className="form-label" for="marks">Marks of Question</label>
+                                                </div>
+                                            </div>
+
 
                                             <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                                                 <button type="submit" className="btn btn-primary btn-lg">Add</button>

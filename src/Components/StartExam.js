@@ -8,6 +8,8 @@ export const StartExam = () => {
     const [exam, setexam] = useState('')
     const [questions, setquestions] = useState([])
     const [currentQuestion, setcurrentQuestion] = useState(0)
+    const [showScore, setshowScore] = useState(false)
+    const [score, setscore] = useState(0)
     const getOneExam = () => {
         axios.get(`http://localhost:8080/exams/${examId}`).then(res => {
             console.log(res.data.data)
@@ -23,12 +25,15 @@ export const StartExam = () => {
 
     const handleAnswerButton = (option) =>{
         const nextQuestion = currentQuestion+1;
+        if(option == questions[currentQuestion].answer){
+            setscore(score+questions[currentQuestion].marks)
+        }
         setcurrentQuestion(nextQuestion)
         if(nextQuestion<questions.length){
             setcurrentQuestion(nextQuestion);
         }
         else{
-            alert('You reached the end of the quiz')
+            setshowScore(true)
         }
     }
 
@@ -56,8 +61,8 @@ export const StartExam = () => {
         <div>
 			{/* HINT: replace "false" with logic to display the 
       score when the user has answered all the questions */}
-			{false ? (
-				<div className='score-section'>You scored 1 out of </div>
+			{showScore ? (
+				<div className='score-section'>You scored {score} out of {exam.totalMarks} </div>
 			) : (
                 <>
                 {questions.slice(1).map(question=>{
@@ -71,10 +76,10 @@ export const StartExam = () => {
 						
 					</div>
 					<div className="d-grid gap-2 col-6">
-						<button className='btn btn-primary text-start px-4' onClick={()=>handleAnswerButton()}>A) {questions[currentQuestion].option1}</button>
-						<button  className='btn btn-primary text-start px-4' onClick={()=>handleAnswerButton()}>B) {questions[currentQuestion].option2}</button>
-						<button  className='btn btn-primary text-start px-4' onClick={()=>handleAnswerButton()}>C) {questions[currentQuestion].option3}</button>
-						<button className='btn btn-primary text-start px-4' onClick={()=>handleAnswerButton()}>D) {questions[currentQuestion].option4}</button>
+						<button className='btn btn-primary text-start px-4' onClick={()=>handleAnswerButton(questions[currentQuestion].option1)}>A) {questions[currentQuestion].option1}</button>
+						<button  className='btn btn-primary text-start px-4' onClick={()=>handleAnswerButton(questions[currentQuestion].option2)}>B) {questions[currentQuestion].option2}</button>
+						<button  className='btn btn-primary text-start px-4' onClick={()=>handleAnswerButton(questions[currentQuestion].option3)}>C) {questions[currentQuestion].option3}</button>
+						<button className='btn btn-primary text-start px-4' onClick={()=>handleAnswerButton(questions[currentQuestion].option4)}>D) {questions[currentQuestion].option4}</button>
 					</div>
                     </> 
                     )

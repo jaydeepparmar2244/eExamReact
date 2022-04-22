@@ -28,12 +28,12 @@ export const StartExam = () => {
         if (option == questions[currentQuestion].answer) {
             setscore(score + questions[currentQuestion].marks)
         }
-        setcurrentQuestion(nextQuestion)
         if (nextQuestion < questions.length) {
             setcurrentQuestion(nextQuestion);
         }
         else {
             setshowScore(true)
+            submitExam(score)
         }
     }
 
@@ -49,8 +49,21 @@ export const StartExam = () => {
         }
         else{
             setshowScore(true)
+            submitExam(score)
         }
     }
+        const submitExam = (score) =>{
+            var data = {
+               user: userId,
+               exam: examId,
+               marks: score
+           }
+           axios.post('http://localhost:8080/results',data).then(res=>{
+               console.log(res.data.data)
+           }).catch(err=>{
+               console.log(err)
+           })
+       }
 
     return (
         <div className="container-xxl py-5">
@@ -81,7 +94,7 @@ export const StartExam = () => {
                         <div className='score-section'>You scored {score} out of {exam.totalMarks} </div>
                     ) : (
                         <>
-                            {questions.slice(1).map(question => {
+                            {questions.slice(questions.length-1).map(question => {
                                 return (
                                     <>
                                         <div className='question-section'>
@@ -89,6 +102,7 @@ export const StartExam = () => {
                                                 <h6>Question {currentQuestion + 1}.</h6>
                                                 <h6>{questions[currentQuestion].questionName}</h6>
                                             </div>
+                                            <h6>{questions[currentQuestion].marks}</h6>
 
                                         </div>
                                         <div className="d-grid gap-2 col-6">
@@ -108,9 +122,12 @@ export const StartExam = () => {
                             <li className="me-2">
                                 <button className="btn btn-primary" onClick={() => previousQuestionButton()}>Previous Question</button>
                             </li>
-                            <li className="me-2">
+                            {currentQuestion+1==questions.length?<li className="me-2">
+                                <button className="btn btn-primary" onClick={() => nextQuestionButton()}>Submit Exam</button>
+                            </li>:<li className="me-2">
                                 <button className="btn btn-primary" onClick={() => nextQuestionButton()}>Next Question</button>
-                            </li>
+                            </li>}
+                            
                         </ul>
                     </div>
             </div>

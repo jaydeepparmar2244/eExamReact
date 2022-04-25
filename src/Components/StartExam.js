@@ -1,6 +1,8 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import {CountdownTimer} from './CountdownTimer';
+import { ExpiredNotice } from './ExpiredNotice';
 
 export const StartExam = () => {
     var examId = useParams().examId
@@ -10,6 +12,9 @@ export const StartExam = () => {
     const [currentQuestion, setcurrentQuestion] = useState(0)
     const [showScore, setshowScore] = useState(false)
     const [score, setscore] = useState(0)
+    const examMinutes = exam.examTime    
+    const [hours, minutes, seconds] = CountdownTimer(examMinutes)
+    
     const getOneExam = () => {
         axios.get(`http://localhost:8080/exams/${examId}`).then(res => {
             console.log(res.data.data)
@@ -75,6 +80,7 @@ export const StartExam = () => {
                             <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit diam justo sed rebum.</p>
                         </div>
                     </div>
+                
                     <div className="col-lg-6 text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
                         <ul className="nav nav-pills d-inline-flex justify-content-end mb-5">
                             <li className="nav-item me-2">
@@ -83,13 +89,14 @@ export const StartExam = () => {
                             <li className="me-2">
                                 <p className="btn btn-primary">Total Time: {exam.examTime} Minutes</p>
                             </li>
+                            {(hours + minutes + seconds <= 0)?<ExpiredNotice />:
+                                  <>{hours}:{minutes}:{seconds}</>
+                            }
                             <h2></h2>
                         </ul>
                     </div>
                 </div>
                 <div>
-                    {/* HINT: replace "false" with logic to display the 
-      score when the user has answered all the questions */}
                     {showScore ? (
                         <div className='score-section'>You scored {score} out of {exam.totalMarks} </div>
                     ) : (
@@ -102,7 +109,7 @@ export const StartExam = () => {
                                                 <h6>Question {currentQuestion + 1}.</h6>
                                                 <h6>{questions[currentQuestion].questionName}</h6>
                                             </div>
-                                            <h6>{questions[currentQuestion].marks}</h6>
+                                            <h6>{questions[currentQuestion].marks} Marks</h6>
 
                                         </div>
                                         <div className="d-grid gap-2 col-6">

@@ -1,8 +1,6 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
-import {CountdownTimer} from './CountdownTimer';
-import { ExpiredNotice } from './ExpiredNotice';
+import React, { useEffect, useState, useRef } from 'react'
+import { Link, useParams } from 'react-router-dom';
 
 export const StartExam = () => {
     var examId = useParams().examId
@@ -12,9 +10,77 @@ export const StartExam = () => {
     const [currentQuestion, setcurrentQuestion] = useState(0)
     const [showScore, setshowScore] = useState(false)
     const [score, setscore] = useState(0)
-    const examMinutes = exam.examTime    
-    const [hours, minutes, seconds] = CountdownTimer(examMinutes)
+    var examTime = exam.examTime;
+    const Ref = useRef(null);
+  
+    // The state for our timer
+    const [timer, setTimer] = useState('00:00:00');
+  
+  
+    const getTimeRemaining = (e) => {
+        const total = Date.parse(e) - Date.parse(new Date());
+        const seconds = Math.floor((total / 1000) % 60);
+        const minutes = Math.floor((total / 1000 / 60));
+        // const hours = Math.floor((total / 1000 * 60 * 60)%24);
+        return {
+            total, minutes, seconds
+        };
+    }
+  
+  
+    const startTimer = (e) => {
+        let { total, minutes, seconds } 
+                    = getTimeRemaining(e);
+        if (total >= 0) {
+  
+            // update the timer
+            // check if less than 10 then we need to 
+            // add '0' at the begining of the variable
+            setTimer(
+                (minutes > 9 ? minutes : '0' + minutes) + ':'
+                + (seconds > 9 ? seconds : '0' + seconds)
+            )
+        }
+    }
+  
+  
+    const clearTimer = (e) => {
+  
+        // If you adjust it you should also need to
+        // adjust the Endtime formula we are about
+        // to code next    
+        setTimer('00:00:10');
+  
+        // If you try to remove this line the 
+        // updating of timer Variable will be
+        // after 1000ms or 1sec
+        if (Ref.current) clearInterval(Ref.current);
+        const id = setInterval(() => {
+            startTimer(e);
+        }, 1000)
+        Ref.current = id;
+    }
     
+  
+    const getDeadTime = () => {
+        let deadline = new Date();
+  
+        // This is where you need to adjust if 
+        // you entend to add more time
+        deadline.setSeconds(deadline.getSeconds() + examTime*60);
+        return deadline;
+    }
+  
+    // We can use useEffect so that when the component
+    // mount the timer will start as soon as possible
+  
+    // We put empty array to act as componentDid
+    // mount only
+    useEffect(() => {
+        clearTimer(getDeadTime());
+    }, [examTime]);
+   
+
     const getOneExam = () => {
         axios.get(`http://localhost:8080/exams/${examId}`).then(res => {
             console.log(res.data.data)
@@ -27,7 +93,7 @@ export const StartExam = () => {
     useEffect(() => {
         getOneExam()
     }, [])
-    
+
     const handleAnswerButton = (option) => {
         const nextQuestion = currentQuestion + 1;
         if (option == questions[currentQuestion].answer) {
@@ -89,10 +155,7 @@ export const StartExam = () => {
                             <li className="me-2">
                                 <p className="btn btn-primary">Total Time: {exam.examTime} Minutes</p>
                             </li>
-                            {(hours + minutes + seconds <= 0)?<ExpiredNotice />:
-                                  <>{hours}:{minutes}:{seconds}</>
-                            }
-                            <h2></h2>
+                            <h2>{timer}</h2>
                         </ul>
                     </div>
                 </div>

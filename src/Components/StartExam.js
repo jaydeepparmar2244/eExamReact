@@ -10,6 +10,7 @@ export const StartExam = () => {
     const [currentQuestion, setcurrentQuestion] = useState(0)
     const [showScore, setshowScore] = useState(false)
     const [score, setscore] = useState(0)
+    const [examSubmitted, setexamSubmitted] = useState(false)
     var examTime = exam.examTime;
     const Ref = useRef(null);
 
@@ -124,6 +125,7 @@ export const StartExam = () => {
         }
     }
     const submitExam = (score) => {
+        setexamSubmitted(true)
         var data = {
             user: userId,
             exam: examId,
@@ -157,9 +159,11 @@ export const StartExam = () => {
                 </div>
                 <div>
                     {showScore ? (
-                        <div className=''>You scored {score} out of {exam.totalMarks} </div>
+                        <div className='d-grid gap-2 col-6'>
+                            <h5>Thank You For Taking Exam!</h5>
+                            <h3 className='text-success'>You scored {score} out of {exam.totalMarks}</h3> </div>
                     ) : (
-                        <>
+                        <>{console.log(questions.length)}
                             {questions.slice(questions.length - 1).map(question => {
                                 return (
                                     <>
@@ -183,6 +187,7 @@ export const StartExam = () => {
                         </>
                     )}
                 </div>
+                {examSubmitted==true?"":<>
                 {currentQuestion<=questions.length?
                 <div className="text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
                     <ul className="nav nav-pills d-inline-flex justify-content-end mb-5">
@@ -191,7 +196,7 @@ export const StartExam = () => {
                                 <button className="btn btn-primary" onClick={() => previousQuestionButton()}>Previous Question</button>
                             </li> : ""}
                         {currentQuestion + 1 == questions.length ? <li className="me-2">
-                            <button className="btn btn-dark" onClick={() => submitExam()}>Submit Exam</button>
+                            <button className="btn btn-dark" onClick={() => nextQuestionButton()}>Submit Exam</button>
                         </li> : <li className="me-2">
                             <button className="btn btn-primary" onClick={() => nextQuestionButton()}>Next Question</button>
                         </li>}
@@ -199,6 +204,7 @@ export const StartExam = () => {
                     </ul>
                 </div>:""
                }
+               </>}
             </div>
         </div>
     )

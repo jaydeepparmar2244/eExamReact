@@ -10,7 +10,7 @@ export const Footer = () => {
                         <h5 className="text-white mb-4">Get In Touch</h5>
                         <p className="mb-2"><i className="fa fa-map-marker-alt me-3"></i>Khedbramha, Sabarkantha, Gujarat</p>
                         <p className="mb-2"><i className="fa fa-phone-alt me-3"></i>+91 6354837943</p>
-                        <p className="mb-2"><i className="fa fa-envelope me-3"></i>examKiller@gmail.com</p>
+                        <p className="mb-2"><i className="fa fa-envelope me-3"></i>testkillerofficial@gmail.com</p>
                         <div className="d-flex pt-2">
                             <a className="btn btn-outline-light btn-social" href="/#"><i className="fab fa-twitter"></i></a>
                             <a className="btn btn-outline-light btn-social" href="/#"><i className="fab fa-facebook-f"></i></a>

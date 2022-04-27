@@ -1,12 +1,14 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
-import { StartExam } from './StartExam'
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import { StartExam } from './StartExam';
 
 export const ViewOneExam = () => {
     var examId = useParams().examId
     var userId = localStorage.getItem('userId')
     const [exam, setexam] = useState('')
+    var navigate = useNavigate();
+    var auth = localStorage.getItem('email')
 
     const getOneExam = () => {
         axios.get(`http://localhost:8080/exams/${examId}`).then(res => {
@@ -19,6 +21,11 @@ export const ViewOneExam = () => {
 
     useEffect(() => {
         getOneExam()
+        {
+            if(!auth){
+                navigate('/login')
+            }
+        }
     }, [])
 
   return (
@@ -33,12 +40,13 @@ export const ViewOneExam = () => {
                     </div>
                     <div className="col-lg-6 text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
                         <ul className="nav nav-pills d-inline-flex justify-content-end mb-5">
-                            <li className="nav-item me-2">
+                        {localStorage.getItem('role')=="Faculty" && exam.user._id == localStorage.getItem('userId')?
+                           <><li className="nav-item me-2">
                                 <Link className="btn btn-outline-primary" to={`/exam/${examId}/questions`}>Add Questions</Link>
                             </li>
                             <li className="nav-item me-2">
                                 <Link className="btn btn-outline-primary" to={`/exams/${examId}/questions`}>View Questions</Link>
-                            </li>
+                            </li></>:""}
                             <li className="nav-item me-2">
                                 <a className="btn btn-outline-primary">Total Time: {exam.examTime} Minutes</a>
                             </li>

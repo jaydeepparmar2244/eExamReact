@@ -12,11 +12,11 @@ export const StartExam = () => {
     const [score, setscore] = useState(0)
     var examTime = exam.examTime;
     const Ref = useRef(null);
-  
+
     // The state for our timer
     const [timer, setTimer] = useState('00:00:00');
-  
-  
+
+
     const getTimeRemaining = (e) => {
         const total = Date.parse(e) - Date.parse(new Date());
         const seconds = Math.floor((total / 1000) % 60);
@@ -26,13 +26,13 @@ export const StartExam = () => {
             total, minutes, seconds
         };
     }
-  
-  
+
+
     const startTimer = (e) => {
-        let { total, minutes, seconds } 
-                    = getTimeRemaining(e);
+        let { total, minutes, seconds }
+            = getTimeRemaining(e);
         if (total >= 0) {
-  
+
             // update the timer
             // check if less than 10 then we need to 
             // add '0' at the begining of the variable
@@ -42,15 +42,15 @@ export const StartExam = () => {
             )
         }
     }
-  
-  
+
+
     const clearTimer = (e) => {
-  
+
         // If you adjust it you should also need to
         // adjust the Endtime formula we are about
         // to code next    
         setTimer('00:00:10');
-  
+
         // If you try to remove this line the 
         // updating of timer Variable will be
         // after 1000ms or 1sec
@@ -60,26 +60,26 @@ export const StartExam = () => {
         }, 1000)
         Ref.current = id;
     }
-    
-  
+
+
     const getDeadTime = () => {
         let deadline = new Date();
-  
+
         // This is where you need to adjust if 
         // you entend to add more time
-        deadline.setSeconds(deadline.getSeconds() + examTime*60);
+        deadline.setSeconds(deadline.getSeconds() + examTime * 60);
         return deadline;
     }
-  
+
     // We can use useEffect so that when the component
     // mount the timer will start as soon as possible
-  
+
     // We put empty array to act as componentDid
     // mount only
     useEffect(() => {
         clearTimer(getDeadTime());
     }, [examTime]);
-   
+
 
     const getOneExam = () => {
         axios.get(`http://localhost:8080/exams/${examId}`).then(res => {
@@ -108,33 +108,33 @@ export const StartExam = () => {
         }
     }
 
-    const previousQuestionButton = () =>{
-        if(currentQuestion != 0){
-            setcurrentQuestion(currentQuestion-1)
+    const previousQuestionButton = () => {
+        if (currentQuestion != 0) {
+            setcurrentQuestion(currentQuestion - 1)
         }
     }
 
-    const nextQuestionButton = () =>{
-        if(currentQuestion != questions.length-1){
-            setcurrentQuestion(currentQuestion+1)
+    const nextQuestionButton = () => {
+        if (currentQuestion != questions.length - 1) {
+            setcurrentQuestion(currentQuestion + 1)
         }
-        else{
+        else {
             setshowScore(true)
             submitExam(score)
         }
     }
-        const submitExam = (score) =>{
-            var data = {
-               user: userId,
-               exam: examId,
-               marks: score
-           }
-           axios.post('http://localhost:8080/results',data).then(res=>{
-               console.log(res.data.data)
-           }).catch(err=>{
-               console.log(err)
-           })
-       }
+    const submitExam = (score) => {
+        var data = {
+            user: userId,
+            exam: examId,
+            marks: score
+        }
+        axios.post('http://localhost:8080/results', data).then(res => {
+            console.log(res.data.data)
+        }).catch(err => {
+            console.log(err)
+        })
+    }
 
     return (
         <div className="container-xxl py-5">
@@ -146,33 +146,29 @@ export const StartExam = () => {
                             <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit diam justo sed rebum.</p>
                         </div>
                     </div>
-                
+
                     <div className="col-lg-6 text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
                         <ul className="nav nav-pills d-inline-flex justify-content-end mb-5">
-                            <li className="nav-item me-2">
-                                <Link className="btn btn-outline-primary" to={`/exam/${examId}/questions`}>Add Questions</Link>
-                            </li>
                             <li className="me-2">
-                                <p className="btn btn-primary">Total Time: {exam.examTime} Minutes</p>
+                                <h1 className="btn btn-primary">Time Remaining: {timer}</h1>
                             </li>
-                            <h2>{timer}</h2>
                         </ul>
                     </div>
                 </div>
                 <div>
                     {showScore ? (
-                        <div className='score-section'>You scored {score} out of {exam.totalMarks} </div>
+                        <div className=''>You scored {score} out of {exam.totalMarks} </div>
                     ) : (
                         <>
-                            {questions.slice(questions.length-1).map(question => {
+                            {questions.slice(questions.length - 1).map(question => {
                                 return (
                                     <>
-                                        <div className='question-section'>
-                                            <div className='question-count' key={questions[currentQuestion]._id}>
-                                                <h6>Question {currentQuestion + 1}.</h6>
+                                        <div>
+                                            <div className='row' key={questions[currentQuestion]._id}>
+                                                <h6 className='col-6'>Question {currentQuestion + 1}.</h6>
+                                                <h6 className='text-center col-3'>{questions[currentQuestion].marks} Marks</h6>
                                                 <h6>{questions[currentQuestion].questionName}</h6>
                                             </div>
-                                            <h6>{questions[currentQuestion].marks} Marks</h6>
 
                                         </div>
                                         <div className="d-grid gap-2 col-6">
@@ -187,19 +183,22 @@ export const StartExam = () => {
                         </>
                     )}
                 </div>
+                {currentQuestion<=questions.length?
                 <div className="text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
-                        <ul className="nav nav-pills d-inline-flex justify-content-end mb-5">
+                    <ul className="nav nav-pills d-inline-flex justify-content-end mb-5">
+                        {currentQuestion != 0 ?
                             <li className="me-2">
                                 <button className="btn btn-primary" onClick={() => previousQuestionButton()}>Previous Question</button>
-                            </li>
-                            {currentQuestion+1==questions.length?<li className="me-2">
-                                <button className="btn btn-primary" onClick={() => nextQuestionButton()}>Submit Exam</button>
-                            </li>:<li className="me-2">
-                                <button className="btn btn-primary" onClick={() => nextQuestionButton()}>Next Question</button>
-                            </li>}
-                            
-                        </ul>
-                    </div>
+                            </li> : ""}
+                        {currentQuestion + 1 == questions.length ? <li className="me-2">
+                            <button className="btn btn-dark" onClick={() => submitExam()}>Submit Exam</button>
+                        </li> : <li className="me-2">
+                            <button className="btn btn-primary" onClick={() => nextQuestionButton()}>Next Question</button>
+                        </li>}
+
+                    </ul>
+                </div>:""
+               }
             </div>
         </div>
     )

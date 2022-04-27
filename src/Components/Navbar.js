@@ -51,6 +51,8 @@ export const Navbar = () => {
                         <Link to="/" className="nav-item nav-link active">Home</Link>
                         <Link to="/exams" className="nav-item nav-link">Exams</Link>
                         <Link to="/subjects" className="nav-item nav-link">Subjects</Link>
+                        <Link to="/contact" className="nav-item nav-link">Contact Us</Link>
+                        <Link to="/about" className="nav-item nav-link">About Us</Link>
                         {localStorage.getItem('role')==='Admin'?<Link to="/subject/new" className="nav-item nav-link">Add Subject</Link>:""}
                         {/* <div className="nav-item dropdown">
                             <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>

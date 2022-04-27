@@ -17,8 +17,8 @@ export const Home = () => {
             <About />
             <Subjects />
             <Contact />
-            <Team />
-            <Testimonial />
+            {/* <Team /> */}
+            {/* <Testimonial /> */}
         </React.Fragment>
     )
 }

@@ -59,9 +59,10 @@ export const Exams = () => {
                     </div>
                     <div className="col-lg-6 text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
                         <ul className="nav nav-pills d-inline-flex justify-content-end mb-5">
+                            {localStorage.getItem('role')=="Faculty" && localStorage.getItem('role')=="Admin"?
                             <li className="nav-item me-2">
                                 <Link to="/exam/new" className="btn btn-outline-primary">Add Exam</Link>
-                            </li>
+                            </li>:""}
                             {/* <li className="nav-item me-2">
                                 <a className="btn btn-outline-primary" data-bs-toggle="pill" href="#tab-2">For Sell</a>
                             </li>

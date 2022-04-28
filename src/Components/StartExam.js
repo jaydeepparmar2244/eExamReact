@@ -32,6 +32,10 @@ export const StartExam = () => {
     const startTimer = (e) => {
         let { total, minutes, seconds }
             = getTimeRemaining(e);
+        if (total == 0) {
+            setshowScore(true)
+            submitExam(score)
+        }
         if (total >= 0) {
 
             // update the timer
@@ -99,6 +103,7 @@ export const StartExam = () => {
         const nextQuestion = currentQuestion + 1;
         if (option == questions[currentQuestion].answer) {
             setscore(score + questions[currentQuestion].marks)
+            console.log(score)
         }
         if (nextQuestion < questions.length) {
             setcurrentQuestion(nextQuestion);
@@ -109,11 +114,11 @@ export const StartExam = () => {
         }
     }
 
-    const previousQuestionButton = () => {
-        if (currentQuestion != 0) {
-            setcurrentQuestion(currentQuestion - 1)
-        }
-    }
+    // const previousQuestionButton = () => {
+    //     if (currentQuestion != 0) {
+    //         setcurrentQuestion(currentQuestion - 1)
+    //     }
+    // }
 
     const nextQuestionButton = () => {
         if (currentQuestion != questions.length - 1) {
@@ -124,7 +129,9 @@ export const StartExam = () => {
             submitExam(score)
         }
     }
+
     const submitExam = (score) => {
+        // alert("You sure want to submit?")
         setexamSubmitted(true)
         var data = {
             user: userId,
@@ -163,7 +170,7 @@ export const StartExam = () => {
                             <h5>Thank You For Taking Exam!</h5>
                             <h3 className='text-success'>You scored {score} out of {exam.totalMarks}</h3> </div>
                     ) : (
-                        <>{console.log(questions.length)}
+                        <>
                             {questions.slice(questions.length - 1).map(question => {
                                 return (
                                     <>
@@ -187,24 +194,24 @@ export const StartExam = () => {
                         </>
                     )}
                 </div>
-                {examSubmitted==true?"":<>
-                {currentQuestion<=questions.length?
-                <div className="text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
-                    <ul className="nav nav-pills d-inline-flex justify-content-end mb-5">
-                        {currentQuestion != 0 ?
+                {examSubmitted == true ? "" : <>
+                    {currentQuestion <= questions.length ?
+                        <div className="text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
+                            <ul className="nav nav-pills d-inline-flex justify-content-end mb-5">
+                                {/* {currentQuestion != 0 ?
                             <li className="me-2">
                                 <button className="btn btn-primary" onClick={() => previousQuestionButton()}>Previous Question</button>
-                            </li> : ""}
-                        {currentQuestion + 1 == questions.length ? <li className="me-2">
-                            <button className="btn btn-dark" onClick={() => nextQuestionButton()}>Submit Exam</button>
-                        </li> : <li className="me-2">
-                            <button className="btn btn-primary" onClick={() => nextQuestionButton()}>Next Question</button>
-                        </li>}
+                            </li> : ""} */}
+                                {currentQuestion + 1 == questions.length ? <li className="me-2">
+                                    <button className="btn btn-dark" onClick={() => nextQuestionButton()}>Submit Exam</button>
+                                </li> : <li className="me-2">
+                                    <button className="btn btn-primary" onClick={() => nextQuestionButton()}>Next Question</button>
+                                </li>}
 
-                    </ul>
-                </div>:""
-               }
-               </>}
+                            </ul>
+                        </div> : ""
+                    }
+                </>}
             </div>
         </div>
     )

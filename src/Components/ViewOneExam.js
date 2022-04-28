@@ -40,7 +40,7 @@ export const ViewOneExam = () => {
                     </div>
                     <div className="col-lg-6 text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
                         <ul className="nav nav-pills d-inline-flex justify-content-end mb-5">
-                        {localStorage.getItem('role')=="Faculty" && exam.user._id == localStorage.getItem('userId')?
+                        {localStorage.getItem('role')=="Admin"||(localStorage.getItem('role')=="Faculty" && exam.user._id == localStorage.getItem('userId'))?
                            <><li className="nav-item me-2">
                                 <Link className="btn btn-outline-primary" to={`/exam/${examId}/questions`}>Add Questions</Link>
                             </li>

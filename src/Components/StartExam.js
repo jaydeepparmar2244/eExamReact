@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState, useRef } from 'react'
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 export const StartExam = () => {
     var examId = useParams().examId
@@ -66,7 +66,6 @@ export const StartExam = () => {
         Ref.current = id;
     }
 
-
     const getDeadTime = () => {
         let deadline = new Date();
 
@@ -103,16 +102,21 @@ export const StartExam = () => {
         const nextQuestion = currentQuestion + 1;
         if (option == questions[currentQuestion].answer) {
             setscore(score + questions[currentQuestion].marks)
-            console.log(score)
         }
         if (nextQuestion < questions.length) {
             setcurrentQuestion(nextQuestion);
         }
         else {
             setshowScore(true)
-            submitExam(score)
         }
     }
+
+    useEffect(() => {
+        if(showScore){
+            submitExam(score)
+        }
+    }, [showScore])
+    
 
     // const previousQuestionButton = () => {
     //     if (currentQuestion != 0) {
@@ -131,7 +135,6 @@ export const StartExam = () => {
     }
 
     const submitExam = (score) => {
-        // alert("You sure want to submit?")
         setexamSubmitted(true)
         var data = {
             user: userId,
@@ -145,6 +148,7 @@ export const StartExam = () => {
         })
     }
 
+    
     return (
         <div className="container-xxl py-5">
             <div className="container">
@@ -187,7 +191,7 @@ export const StartExam = () => {
                                             <button className='btn btn-primary text-start px-4' onClick={() => handleAnswerButton(questions[currentQuestion].option2)}>B) {questions[currentQuestion].option2}</button>
                                             <button className='btn btn-primary text-start px-4' onClick={() => handleAnswerButton(questions[currentQuestion].option3)}>C) {questions[currentQuestion].option3}</button>
                                             <button className='btn btn-primary text-start px-4' onClick={() => handleAnswerButton(questions[currentQuestion].option4)}>D) {questions[currentQuestion].option4}</button>
-                                        </div>
+                                        </div> 
                                     </>
                                 )
                             })}

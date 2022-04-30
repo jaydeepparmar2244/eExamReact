@@ -19,10 +19,9 @@ export const Login = () => {
 			if (res.data.status == 200) {
 				localStorage.setItem('userId',res.data.data._id)
 				localStorage.setItem('email',res.data.data.email);
-				localStorage.setItem('role',res.data.data.role.roleName);
+				localStorage.setItem('role',res.data.data.role.rolename);
 				localStorage.setItem('firstName',res.data.data.firstName)
 				localStorage.setItem('lastName',res.data.data.lastName)
-				localStorage.setItem('isLoggedIn',true)
 				toast.success(res.data.msg, {
 					position: "bottom-right",
 					autoClose: 5000,

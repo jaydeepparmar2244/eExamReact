@@ -4,13 +4,10 @@ import { toast, ToastContainer } from 'react-toastify';
 
 
 export const Navbar = () => {
-    // const [Loading, setLoading] = useState(true)
     var navigate = useNavigate();
-    // var userId = localStorage.getItem('userId');
 
     const logout = () => {
         localStorage.clear();
-        // setLoading(!Loading);
         toast.success("You're Logged Out!", {
             position: "bottom-right",
             autoClose: 5000,
@@ -24,14 +21,6 @@ export const Navbar = () => {
             navigate('/')
         }, 2000);
     }
-
-    // const isLoggedIn = () =>{
-    //     localStorage.getItem('email')
-    // }
-
-    // useEffect(() => {
-    //   isLoggedIn()
-    // }, [])
     
 
     return (
@@ -54,18 +43,10 @@ export const Navbar = () => {
                         <Link to="/contact" className="nav-item nav-link">Contact Us</Link>
                         <Link to="/about" className="nav-item nav-link">About Us</Link>
                         {localStorage.getItem('role')==='Admin'?<Link to="/subject/new" className="nav-item nav-link">Add Subject</Link>:""}
-                        {/* <div className="nav-item dropdown">
-                            <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                            <div className="dropdown-menu rounded-0 m-0">
-                                <a href="testimonial.html" className="dropdown-item">Testimonial</a>
-                                <a href="404.html" className="dropdown-item">404 Error</a>
-                            </div>
-                        </div> */}
-                        {/* <a href="contact.html" className="nav-item nav-link">Contact</a> */}
 
                     </div>
                 
-                        {localStorage.getItem('isLoggedIn')===null?<><div className='m-3'>
+                        {localStorage.getItem('userId')===null?<><div className='m-3'>
                         <Link to="/login" className="btn btn-primary px-3 d-none d-lg-flex">Login</Link>
                         </div>
                         <div>

@@ -20,6 +20,8 @@ import { ResetPassword } from './Components/ResetPassword';
 import { ResetPasswordButton } from './Components/ResetPasswordButton';
 import { UserProfile } from './Components/UserProfile';
 import { StartExam } from './Components/StartExam';
+import { Contact } from './Components/Contact';
+import { About } from './Components/About';
 
 // import { Spinner } from './Components/Spinner';
 function App() {
@@ -47,6 +49,8 @@ function App() {
         <Route path='/reset/:token' element={<ResetPassword/>}></Route>
         <Route path='/profile/:userId' element={<UserProfile/>}></Route>
         <Route path='/exam/:examId/:userId' element={<StartExam/>}></Route>
+        <Route path='/contact' element={<Contact/>}></Route>
+        <Route path='/about' element={<About/>}></Route>
       </Routes>
       
       

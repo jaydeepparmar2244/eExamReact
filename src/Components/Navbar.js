@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link,useNavigate } from 'react-router-dom'
+import { Link,NavLink,useNavigate } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify';
 
 
@@ -37,13 +37,12 @@ export const Navbar = () => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarCollapse">
                     <div className="navbar-nav ms-auto">
-                        <Link to="/" className="nav-item nav-link active">Home</Link>
-                        <Link to="/exams" className="nav-item nav-link">Exams</Link>
-                        <Link to="/subjects" className="nav-item nav-link">Subjects</Link>
-                        <Link to="/contact" className="nav-item nav-link">Contact Us</Link>
-                        <Link to="/about" className="nav-item nav-link">About Us</Link>
+                        <NavLink exact to="/" activeClassName="nav-item nav-link active" className="nav-item nav-link">Home</NavLink>
+                        <NavLink exact to="/exams" activeClassName="nav-item nav-link active" className="nav-item nav-link">Exams</NavLink>
+                        <NavLink exact to="/subjects" activeClassName="nav-item nav-link active" className="nav-item nav-link">Subjects</NavLink>
+                        <NavLink exact to="/contact" activeClassName="nav-item nav-link active" className="nav-item nav-link">Contact US</NavLink>
+                        <NavLink exact to="/about" activeClassName="nav-item nav-link active" className="nav-item nav-link">About US</NavLink>
                         {localStorage.getItem('role')==='Admin'?<Link to="/subject/new" className="nav-item nav-link">Add Subject</Link>:""}
-
                     </div>
                 
                         {localStorage.getItem('userId')===null?<><div className='m-3'>

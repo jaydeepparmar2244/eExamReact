@@ -105,7 +105,7 @@ export const Search = () => {
                                     else if(exam.examName.toLowerCase().includes(examName.toLowerCase())){
                                         return exam;
                                     }
-                                }).map((exam => {
+                                }).slice(-3).map((exam => {
                                     return (
                                         <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s" key={exam._id}>
                                         <div className="property-item rounded overflow-hidden">
@@ -144,7 +144,7 @@ export const Search = () => {
                                 }))
                             }
                             <div className="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
-                                <a className="btn btn-primary py-3 px-5" href="/#">Browse More Exams</a>
+                                <Link className="btn btn-primary py-3 px-5" to="/exams">Browse More Exams</Link>
                             </div>
                         </div>
                     </div>

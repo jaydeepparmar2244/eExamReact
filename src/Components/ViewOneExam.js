@@ -9,11 +9,13 @@ export const ViewOneExam = () => {
     const [exam, setexam] = useState('')
     var navigate = useNavigate();
     var auth = localStorage.getItem('email')
+    const [authorId, setauthorId] = useState('')
 
     const getOneExam = () => {
         axios.get(`http://localhost:8080/exams/${examId}`).then(res => {
             console.log(res.data.data)
             setexam(res.data.data)
+            setauthorId(res.data.data.author._id)
         }).catch(err => {
             console.log(err)
         })
@@ -40,7 +42,7 @@ export const ViewOneExam = () => {
                     </div>
                     <div className="col-lg-6 text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
                         <ul className="nav nav-pills d-inline-flex justify-content-end mb-5">
-                        {localStorage.getItem('role')=="Admin"||(localStorage.getItem('role')=="Faculty" && exam.user._id == localStorage.getItem('userId'))?
+                        {localStorage.getItem('role')=="Admin"||(localStorage.getItem('role')=="Faculty" && authorId == localStorage.getItem('userId'))?
                            <><li className="nav-item me-2">
                                 <Link className="btn btn-outline-primary" to={`/exam/${examId}/questions`}>Add Questions</Link>
                             </li>

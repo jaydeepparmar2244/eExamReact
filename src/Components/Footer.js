@@ -30,22 +30,22 @@ export const Footer = () => {
                         <h5 className="text-white mb-4">Photo Gallery</h5>
                         <div className="row g-2 pt-2">
                             <div className="col-4">
-                                <img className="img-fluid rounded bg-light p-1" src="img/exam/2152177.jpg" alt=""/>
+                                <img className="img-fluid rounded bg-light p-1" src="/img/exam/2152177.jpg" alt=""/>
                             </div>
                             <div className="col-4">
-                                <img className="img-fluid rounded bg-light p-1" src="img/exam/a.jpg" alt=""/>
+                                <img className="img-fluid rounded bg-light p-1" src="/img/exam/a.jpg" alt=""/>
                             </div>
                             <div className="col-4">
-                                <img className="img-fluid rounded bg-light p-1" src="img/exam/5187554.jpg" alt=""/>
+                                <img className="img-fluid rounded bg-light p-1" src="/img/exam/5187554.jpg" alt=""/>
                             </div>
                             <div className="col-4">
-                                <img className="img-fluid rounded bg-light p-1" src="img/exam/b.jpg" alt=""/>
+                                <img className="img-fluid rounded bg-light p-1" src="/img/exam/b.jpg" alt=""/>
                             </div>
                             <div className="col-4">
-                                <img className="img-fluid rounded bg-light p-1" src="img/exam/hehehe.jpg" alt=""/>
+                                <img className="img-fluid rounded bg-light p-1" src="/img/exam/hehehe.jpg" alt=""/>
                             </div>
                             <div className="col-4">
-                                <img className="img-fluid rounded bg-light p-1" src="img/exam/eexam.png" alt=""/>
+                                <img className="img-fluid rounded bg-light p-1" src="/img/exam/eexam.png" alt=""/>
                             </div>
                         </div>
                     </div>

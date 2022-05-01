@@ -138,7 +138,7 @@ export const UserProfile = () => {
                 <div className="card mb-12 mb-md-0">
                   <div className="card-body">
                     <p className="mb-12"><span className="text-primary font-italic me-1">Results</span> Project Status</p>
-                    <table class="table">
+                    <table className="table">
                       <thead>
                         <tr>
                           <th scope="col">Exam Title</th>

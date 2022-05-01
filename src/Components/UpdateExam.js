@@ -14,7 +14,7 @@ export const UpdateExam = () => {
     const [subjectList, setsubjectList] = useState([])
 
     var navigate = useNavigate()
-    var auth = localStorage.getItem('isLoggedIn')
+    var auth = localStorage.getItem('userId')
 
     const getExams = () =>{
         axios.get(`http://localhost:8080/exams/${examId}`).then(res=>{

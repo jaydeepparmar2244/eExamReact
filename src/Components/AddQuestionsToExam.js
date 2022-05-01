@@ -60,7 +60,7 @@ export const AddQuestionsToExam = () => {
                                                 <i className="fas fa-user fa-lg me-3 fa-fw"></i>
                                                 <div className="form-outline flex-fill mb-0">
                                                     <input type="text" name="questionName" id="questionName" onChange={(e) => { setquestionName(e.target.value) }} className="form-control" />
-                                                    <label className="form-label" for="questionName">Question</label>
+                                                    <label className="form-label" htmlFor="questionName">Question</label>
                                                 </div>
                                             </div>
 
@@ -68,7 +68,7 @@ export const AddQuestionsToExam = () => {
                                                 <i className="fas fa-user fa-lg me-3 fa-fw"></i>
                                                 <div className="form-outline flex-fill mb-0">
                                                     <input type="text" name="option1" id="option1" onChange={(e) => { setoption1(e.target.value) }} className="form-control" />
-                                                    <label className="form-label" for="option1">Option 1</label>
+                                                    <label className="form-label" htmlFor="option1">Option 1</label>
                                                 </div>
                                             </div>
 
@@ -76,7 +76,7 @@ export const AddQuestionsToExam = () => {
                                                 <i className="fas fa-user fa-lg me-3 fa-fw"></i>
                                                 <div className="form-outline flex-fill mb-0">
                                                     <input type="text" name="option2" id="option2" onChange={(e) => { setoption2(e.target.value) }} className="form-control" />
-                                                    <label className="form-label" for="option2">Option 2</label>
+                                                    <label className="form-label" htmlFor="option2">Option 2</label>
                                                 </div>
                                             </div>
 
@@ -84,7 +84,7 @@ export const AddQuestionsToExam = () => {
                                                 <i className="fas fa-user fa-lg me-3 fa-fw"></i>
                                                 <div className="form-outline flex-fill mb-0">
                                                     <input type="text" name="option3" id="option3" onChange={(e) => { setoption3(e.target.value) }} className="form-control" />
-                                                    <label className="form-label" for="option3">Option 3</label>
+                                                    <label className="form-label" htmlFor="option3">Option 3</label>
                                                 </div>
                                             </div>
 
@@ -92,7 +92,7 @@ export const AddQuestionsToExam = () => {
                                                 <i className="fas fa-user fa-lg me-3 fa-fw"></i>
                                                 <div className="form-outline flex-fill mb-0">
                                                     <input type="text" name="option4" id="option4" onChange={(e) => { setoption4(e.target.value) }} className="form-control" />
-                                                    <label className="form-label" for="option4">Option 4</label>
+                                                    <label className="form-label" htmlFor="option4">Option 4</label>
                                                 </div>
                                             </div>
 
@@ -112,7 +112,7 @@ export const AddQuestionsToExam = () => {
                                                      })
                                                    }     */}
                                                     </select>
-                                                    <label className="form-label" for="subject">Answer</label>
+                                                    <label className="form-label" htmlFor="subject">Answer</label>
                                                 </div>
                                             </div>
 
@@ -120,7 +120,7 @@ export const AddQuestionsToExam = () => {
                                                 <i className="fas fa-user fa-lg me-3 fa-fw"></i>
                                                 <div className="form-outline flex-fill mb-0">
                                                     <input type="number" name="marks" id="marks" onChange={(e) => { setmarks(e.target.value) }} className="form-control" />
-                                                    <label className="form-label" for="marks">Marks of Question</label>
+                                                    <label className="form-label" htmlFor="marks">Marks of Question</label>
                                                 </div>
                                             </div>
 

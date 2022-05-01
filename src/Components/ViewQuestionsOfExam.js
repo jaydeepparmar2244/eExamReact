@@ -7,7 +7,7 @@ export const ViewQuestionsOfExam = () => {
     const [exam, setexam] = useState('')
     const [questions, setquestions] = useState([])
     var navigate = useNavigate()
-    var auth = localStorage.getItem('isLoggedIn')
+    var auth = localStorage.getItem('userId')
 
     const getOneExam = () => {
         axios.get(`http://localhost:8080/exams/${examId}`).then(res => {
@@ -55,9 +55,6 @@ export const ViewQuestionsOfExam = () => {
                             <li className="nav-item me-2">
                                 <Link className="btn btn-outline-primary" to={`/exam/${examId}/questions`}>Add Questions</Link>
                             </li>
-                            <li className="nav-item me-2">
-                                <a className="btn btn-outline-primary" data-bs-toggle="pill" href="#tab-2">Set Timer</a>
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -79,8 +76,8 @@ export const ViewQuestionsOfExam = () => {
                         {
                             questions.map((question,index) => {
                                 return (
-                                    <tr>
-                                        <th scope="row" key={question._id}>{index+1}</th>
+                                    <tr key={question._id}>
+                                        <th scope="row">{index+1}</th>
                                         <td>{question.questionName}</td>
                                         <td>{question.option1}</td>
                                         <td>{question.option2}</td>

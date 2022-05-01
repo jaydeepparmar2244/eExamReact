@@ -79,8 +79,8 @@ export const ExamsOfSubject = () => {
                                         <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s" key={exam._id}>
                                         <div className="property-item rounded overflow-hidden">
                                             <div className="position-relative overflow-hidden">
-                                                <Link to={`/exam/${exam._id}`}><img className="img-fluid" src='img/exam/exam.png' alt="" /></Link>
-                                                <div className="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">{exam.subject.subjectName}</div>
+                                                <Link to={`/exam/${exam._id}`}><img className="img-fluid" src='/img/exam/exam.png' alt="" /></Link>
+                                                <div className="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">{subject.subjectName}</div>
                                                 {/* <div className="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">{exam.totalMarks}</div> */}
                                             </div>
                                             <div className="p-4 pb-0">

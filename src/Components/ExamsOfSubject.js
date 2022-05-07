@@ -42,7 +42,7 @@ export const ExamsOfSubject = () => {
     useEffect(() => {
         getExams()
         getSubject()
-    }, [])
+    },)
 
 
 

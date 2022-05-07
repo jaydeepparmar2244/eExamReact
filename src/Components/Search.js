@@ -47,7 +47,7 @@ export const Search = () => {
   return (
       <>
          <div className="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s" style={{padding: "35px"}}>
-             <form>
+            <form>
             <div className="container">
                 <div className="row g-2">
                     <div className="col-md-12">
@@ -105,6 +105,7 @@ export const Search = () => {
                                     else if(exam.examName.toLowerCase().includes(examName.toLowerCase())){
                                         return exam;
                                     }
+                                    return 0;
                                 }).slice(-3).map((exam => {
                                     return (
                                         <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s" key={exam._id}>

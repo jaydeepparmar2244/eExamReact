@@ -38,7 +38,7 @@ export const UserProfile = () => {
     getUserDetail();
     getResultsOfUser();
     getExamsofAuthor();
-  }, [])
+  },)
 
   return (
     <section style={{ backgroundColor: '#eee' }}>
@@ -47,9 +47,7 @@ export const UserProfile = () => {
           <div className="col">
             <nav aria-label="breadcrumb" className="bg-light rounded-3 p-3 mb-4">
               <ol className="breadcrumb mb-0">
-                <li className="breadcrumb-item"><a href="#">Home</a></li>
-                <li className="breadcrumb-item"><a href="#">User</a></li>
-                <li className="breadcrumb-item active" aria-current="page">User Profile</li>
+                <li className="breadcrumb-item active" aria-current="page">Your Dashboard</li>
               </ol>
             </nav>
           </div>
@@ -148,7 +146,7 @@ export const UserProfile = () => {
               <div className="col-md-12">
                 <div className="card mb-12 mb-md-0">
                   <div className="card-body">
-                  {localStorage.getItem('role')=='Student'?
+                  {localStorage.getItem('role') === 'Student'?
                   <>
                     <p className="mb-12"><span className="text-primary font-italic me-1">Your Results</span></p>
                     <table className="table">

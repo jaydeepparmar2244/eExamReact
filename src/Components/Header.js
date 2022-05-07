@@ -14,7 +14,7 @@ export const Header = () => {
     <div className="col-md-6 animated fadeIn">
       <div className="header-carousel">
         <div className="owl-carousel-item">
-          <img className="img-fluid" src="img/exam/2152177.jpg" />
+          <img className="img-fluid" src="img/exam/2152177.jpg" alt='Examkiller'/>
         </div>
         {/* <div className="owl-carousel-item">
           <img className="img-fluid" src="img/carousel-2.jpg" alt />

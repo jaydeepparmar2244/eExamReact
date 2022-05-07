@@ -54,12 +54,12 @@ export const Exams = () => {
                     <div className="col-lg-6">
                         <div className="text-start mx-auto mb-5 wow slideInLeft" data-wow-delay="0.1s">
                             <h1 className="mb-3">Exams</h1>
-                            <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit diam justo sed rebum.</p>
+                            <p>Exams and Tests from Government to Private Job to School to Any exam you would want to try!</p>
                         </div>
                     </div>
                     <div className="col-lg-6 text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
                         <ul className="nav nav-pills d-inline-flex justify-content-end mb-5">
-                            {localStorage.getItem('role')=="Faculty" || localStorage.getItem('role')=="Admin"?
+                            {localStorage.getItem('role') === "Faculty" || localStorage.getItem('role') ==="Admin"?
                             <li className="nav-item me-2">
                                 <Link to="/exam/new" className="btn btn-outline-primary">Add Exam</Link>
                             </li>:""}
@@ -94,7 +94,7 @@ export const Exams = () => {
                                                 <div className="d-flex border-top">
                                                    {/* {exam.author._id} */}
                                                    
-                                                    {localStorage.getItem('userId')=== exam.author._id || localStorage.getItem('role') === 'Admin' ?<>
+                                                    {localStorage.getItem('userId') === exam.author._id || localStorage.getItem('role') === 'Admin' ?<>
                                                     <small className="flex-fill text-center border-end py-2"><i className="fa fa-edit text-primary me-2"></i><Link to={`/exams/${exam._id}`}>Update Exam</Link></small>
                                                     <small className="flex-fill text-center py-2"><i className="fa fa-trash text-primary me-2"></i><Link to='/exams' onClick={(e) => { deleteExam(exam._id) }}>Delete Exam</Link></small></>:""}
                                                     <ToastContainer

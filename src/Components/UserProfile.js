@@ -6,6 +6,7 @@ export const UserProfile = () => {
   var userId = useParams().userId;
   const [userDetail, setuserDetail] = useState([])
   const [resultList, setresultList] = useState([])
+  const [examList, setexamList] = useState([])
   const getUserDetail = () => {
     axios.get(`http://localhost:8080/users/${userId}`).then(res => {
       console.log(res.data.data)
@@ -24,9 +25,19 @@ export const UserProfile = () => {
     })
   }
 
+  const getExamsofAuthor = () =>{
+    axios.get(`http://localhost:8080/user/${userId}/exams`).then(res=>{
+      console.log(res.data.data)
+      setexamList(res.data.data)
+    }).catch(err=>{
+      console.log(err)
+    })
+  }
+
   useEffect(() => {
     getUserDetail();
     getResultsOfUser();
+    getExamsofAuthor();
   }, [])
 
   return (
@@ -137,7 +148,9 @@ export const UserProfile = () => {
               <div className="col-md-12">
                 <div className="card mb-12 mb-md-0">
                   <div className="card-body">
-                    <p className="mb-12"><span className="text-primary font-italic me-1">Results</span> Project Status</p>
+                  {localStorage.getItem('role')=='Student'?
+                  <>
+                    <p className="mb-12"><span className="text-primary font-italic me-1">Your Results</span></p>
                     <table className="table">
                       <thead>
                         <tr>
@@ -161,6 +174,36 @@ export const UserProfile = () => {
                         })}
                       </tbody>
                     </table>
+                    </>
+                  :<>
+                  <p className="mb-12"><span className="text-primary font-italic me-1">Your Added Exams:</span></p>
+                  <table className="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Exam Title</th>
+                        <th scope="col">Subject</th>
+                        <th scope="col">Total Marks</th>
+                        <th scope="col">Total Questions</th>
+                        <th scope='col'>Total Time(in Minutes)</th>
+                        <th scope='col'>Active</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {examList.map(exam => {
+                        return (
+                          <tr>
+                            <th scope="row">{exam.examName}</th>
+                            <td>{exam.subject.subjectName}</td>
+                            <td>{exam.totalMarks}</td>
+                            <td>{exam.totalQuestions}</td>
+                            <td>{exam.examTime}</td>
+                            <td>{(exam.isActive).toString()}</td>
+                          </tr>
+                        )
+                      })}
+                    </tbody>
+                  </table>
+                  </>}
                   </div>
                 </div>
               </div>

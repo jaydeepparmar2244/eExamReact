@@ -53,7 +53,7 @@ export const ExamsOfSubject = () => {
                     <div className="col-lg-6">
                         <div className="text-start mx-auto mb-5 wow slideInLeft" data-wow-delay="0.1s">
                             <h1 className="mb-3">{subject.subjectName} Exams</h1>
-                            <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit diam justo sed rebum.</p>
+                            <p>various exams from basic to advanced level of subject {subject.subjectName} </p>
                         </div>
                     </div>
                     {/* <div className="col-lg-6 text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
@@ -113,7 +113,7 @@ export const ExamsOfSubject = () => {
                                 }))
                             }
                             <div className="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
-                                <a className="btn btn-primary py-3 px-5" href="/#">Browse More Property</a>
+                                <Link className="btn btn-primary py-3 px-5" to='/exams'>Browse All Exams</Link>
                             </div>
                         </div>
                     </div>

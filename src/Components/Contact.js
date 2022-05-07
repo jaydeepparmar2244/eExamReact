@@ -1,6 +1,5 @@
 import React from 'react'
-// import ReactWOW from 'react-wow'
-// import '../css/contact.css'
+import { Link } from 'react-router-dom'
 
 export const Contact = () => {
     return (
@@ -14,11 +13,11 @@ export const Contact = () => {
                                 </div>
                                 <div className="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                                     <div className="mb-4">
-                                        <h1 className="mb-3">Contact With Our Certified Agent</h1>
-                                        <p>Eirmod sed ipsum dolor sit rebum magna erat. Tempor lorem kasd vero ipsum sit sit diam justo sed vero dolor duo.</p>
+                                        <h1 className="mb-3">Contact Us to Collaborate For Your Institution!</h1>
+                                        <p>Use Our Platform to test your students and evaluate themselves.</p>
                                     </div>
-                                    <a href="/#" className="btn btn-primary py-3 px-4 me-2"><i className="fa fa-phone-alt me-2"></i>Make A Call</a>
-                                    <a href="/#" className="btn btn-dark py-3 px-4"><i className="fa fa-calendar-alt me-2"></i>Get Appoinment</a>
+                                    <Link to="/#" className="btn btn-primary py-3 px-4 me-2"><i className="fa fa-phone-alt me-2"></i>Make A Call</Link>
+                                    <Link to="/#" className="btn btn-dark py-3 px-4"><i className="fa fa-calendar-alt me-2"></i>Get Appoinment</Link>
                                 </div>
                             </div>
                         </div>

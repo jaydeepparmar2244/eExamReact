@@ -12,11 +12,11 @@ export const About = () => {
                         </div>
                     </div>
                     <div className="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                        <h1 className="mb-4">#1 Place To Self-Evaluate Yourself!</h1>
-                        <p className="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                        <p><i className="fa fa-check text-primary me-3"></i>Tempor erat elitr rebum at clita</p>
-                        <p><i className="fa fa-check text-primary me-3"></i>Aliqu diam amet diam et eos</p>
-                        <p><i className="fa fa-check text-primary me-3"></i>Clita duo justo magna dolore erat amet</p>
+                        <h1 className="mb-4">Best Place To Self-Evaluate Yourself!</h1>
+                        <p className="mb-4">ExamKiller is our new journey of aiming to provide students to provide mock exams to self-evaluate themselves.</p>
+                        <p><i className="fa fa-check text-primary me-3"></i>100+ Exams</p>
+                        <p><i className="fa fa-check text-primary me-3"></i>25+ Subjects</p>
+                        <p><i className="fa fa-check text-primary me-3"></i>Better graphic representation to show where you lacks</p>
                         <a className="btn btn-primary py-3 px-5 mt-3" href="/#">Read More</a>
                     </div>
                 </div>

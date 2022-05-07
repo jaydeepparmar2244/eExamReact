@@ -8,8 +8,7 @@ export const Header = () => {
   <div className="row g-0 align-items-center flex-column-reverse flex-md-row">
     <div className="col-md-6 p-5 mt-lg-5">
       <h1 className="display-5 animated fadeIn mb-4">Take <span className="text-primary"> Any Exam</span> And Evaluate Yourself!</h1>
-      <p className="animated fadeIn mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet
-        sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p>
+      <p className="animated fadeIn mb-4 pb-2">ExamKiller is a place to self-evaluate yourself by taking exams of various subjects and categories.</p>
       <Link className="btn btn-primary py-3 px-5 me-3 animated fadeIn" to='/exams'>Explore Exams!</Link>
     </div>
     <div className="col-md-6 animated fadeIn">

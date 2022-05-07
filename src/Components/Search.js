@@ -88,7 +88,7 @@ export const Search = () => {
                     <div className="col-lg-6">
                         <div className="text-start mx-auto mb-5 wow slideInLeft" data-wow-delay="0.1s">
                             <h1 className="mb-3">Exams</h1>
-                            <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit diam justo sed rebum.</p>
+                            <p>Exams and Tests from Government to Private Job to School to Any exam you would want to try!</p>
                         </div>
                     </div>
                     <div className="col-lg-6 text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">

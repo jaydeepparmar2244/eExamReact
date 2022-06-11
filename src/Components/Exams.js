@@ -9,8 +9,9 @@ export const Exams = () => {
     const [examList, setexamList] = useState([]);
     var auth = localStorage.getItem('email')
     var navigate = useNavigate()
+    const URL = "https://examkiller.herokuapp.com/"
     const getExams = () => {
-        axios.get('http://localhost:8080/exams').then(res => {
+        axios.get(URL+'exams').then(res => {
             console.log(res.data.data)
             setexamList(res.data.data)
         }).catch(err => {
@@ -27,7 +28,7 @@ export const Exams = () => {
             navigate('/login')
         }
         else {
-            axios.delete(`http://localhost:8080/exams/${examId}`).then(res => {
+            axios.delete(URL+`exams/${examId}`).then(res => {
                 console.log(res.data.data)
                 toast.success('Exam Deleted!', {
                     position: "bottom-right",

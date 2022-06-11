@@ -70,6 +70,7 @@ export const Exams = () => {
                             <li className="nav-item me-0">
                                 <a className="btn btn-outline-primary" data-bs-toggle="pill" href="#tab-3">For Rent</a>
                             </li> */}
+                            {/* hello */}
                         </ul>
                     </div>
                 </div>

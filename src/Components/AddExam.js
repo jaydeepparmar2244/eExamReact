@@ -4,6 +4,7 @@ import  { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 export const AddExam = () => {
+    const URL = "https://examkiller.herokuapp.com/"
     const [examName, setexamName] = useState('')
     const [totalQuestions, settotalQuestions] = useState('')
     const [isActive, setisActive] = useState('true')
@@ -16,7 +17,7 @@ export const AddExam = () => {
     var navigate = useNavigate()
 
     const getSubjects = () => {
-        axios.get('http://localhost:8080/subjects').then(res=>{
+        axios.get(URL+'subjects').then(res=>{
             console.log(res.data.data)
             setsubjectList(res.data.data)
         }).catch(err=>{
@@ -64,7 +65,7 @@ export const AddExam = () => {
             totalMarks:totalMarks,
             examTime:examTime
         }
-        axios.post('http://localhost:8080/exams', data).then(res => {
+        axios.post(URL+'exams', data).then(res => {
             console.log(res.data)
             toast.success(res.data.msg, {
                 position: "bottom-right",

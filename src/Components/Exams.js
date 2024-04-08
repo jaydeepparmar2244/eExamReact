@@ -9,7 +9,7 @@ export const Exams = () => {
     const [examList, setexamList] = useState([]);
     var auth = localStorage.getItem('email')
     var navigate = useNavigate()
-    const URL = "https://examkiller.herokuapp.com/"
+    const URL = "https://eexamsystem.onrender.com/
     const getExams = () => {
         axios.get(URL+'exams').then(res => {
             console.log(res.data.data)

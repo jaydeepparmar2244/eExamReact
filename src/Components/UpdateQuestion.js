@@ -16,7 +16,7 @@ export const UpdateQuestion = () => {
     var auth = localStorage.getItem('email')
 
     const getQuestion = () => {
-        axios.get(`http://localhost:8080/exams/${examId}/questions/${questionId}`).then(res=>{
+        axios.get(`https://eexamsystem.onrender.com/exams/${examId}/questions/${questionId}`).then(res=>{
             console.log(res.data.data)
             setquestion(res.data.data)
         }).catch(err=>{
@@ -47,7 +47,7 @@ export const UpdateQuestion = () => {
             option4:option4,
             answer:answer
         }
-        axios.put(`http://localhost:8080/exams/${examId}/questions/${questionId}`,data).then(res=>{
+        axios.put(`https://eexamsystem.onrender.com/exams/${examId}/questions/${questionId}`,data).then(res=>{
             console.log('question updated!',res.data.data)
         }).catch(err=>[
             console.log(err)

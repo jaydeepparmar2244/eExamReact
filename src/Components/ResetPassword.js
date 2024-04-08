@@ -12,7 +12,7 @@ export const ResetPassword = () => {
             password: password,
             email: email
         }
-        axios.post('http://localhost:8080/reset', data).then(res => {
+        axios.post('https://eexamsystem.onrender.com/reset', data).then(res => {
             console.log(res.data)
             toast.info(res.data.msg, {
                 position: "bottom-right",

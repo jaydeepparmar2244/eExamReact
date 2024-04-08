@@ -33,7 +33,7 @@ export const AddSubject = () => {
             subjectDescription:subjectDescription,
             isActive:isActive
         }
-        axios.post('http://localhost:8080/subjects',data).then(res=>{
+        axios.post('https://eexamsystem.onrender.com/subjects',data).then(res=>{
             console.log(res.data)
         }).catch(err=>{
             console.log(err)

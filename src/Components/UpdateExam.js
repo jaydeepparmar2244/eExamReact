@@ -17,7 +17,7 @@ export const UpdateExam = () => {
     var auth = localStorage.getItem('userId')
 
     const getExams = () =>{
-        axios.get(`http://localhost:8080/exams/${examId}`).then(res=>{
+        axios.get(`https://eexamsystem.onrender.com/exams/${examId}`).then(res=>{
             console.log(res.data.data)
             setexam(res.data.data)
         }).catch(err=>{
@@ -26,7 +26,7 @@ export const UpdateExam = () => {
     }
 
     const getSubjects = () => {
-        axios.get('http://localhost:8080/subjects').then(res=>{
+        axios.get('https://eexamsystem.onrender.com/subjects').then(res=>{
             console.log(res.data.data)
             setsubjectList(res.data.data)
         }).catch(err=>{
@@ -76,7 +76,7 @@ export const UpdateExam = () => {
             subject:subject,
             author:author
         }
-        axios.put(`http://localhost:8080/exams/${examId}`,data).then(res=>{
+        axios.put(`https://eexamsystem.onrender.com/exams/${examId}`,data).then(res=>{
             console.log(res.data.data)
             navigate('/exams')
 

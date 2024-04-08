@@ -31,7 +31,7 @@ export const ExamsOfSubject = () => {
             navigate('/login')
         }
         else {
-            axios.delete(`http://localhost:8080/exams/${examId}`).then(res => {
+            axios.delete(`https://eexamsystem.onrender.com/exams/${examId}`).then(res => {
                 console.log(res.data.data)
             }).catch(err => {
                 console.log(err)

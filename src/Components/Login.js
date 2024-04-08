@@ -14,7 +14,7 @@ export const Login = () => {
 			email: email,
 			password: password
 		}
-		await axios.post('http://localhost:8080/login', data).then(res => {
+		await axios.post('https://eexamsystem.onrender.com/login', data).then(res => {
 			console.log(res.data)
 			if (res.data.status == 200) {
 				localStorage.setItem('userId',res.data.data._id)

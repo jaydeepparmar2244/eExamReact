@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 export const Subjects = () => {
     const [subjectsList, setsubjectsList] = useState([])
     const getSubjects = () => {
-        axios.get('http://localhost:8080/subjects').then(res => {
+        axios.get('https://eexamsystem.onrender.com/subjects').then(res => {
             console.log(res.data.data)
             setsubjectsList(res.data.data)
         }).catch(err => {

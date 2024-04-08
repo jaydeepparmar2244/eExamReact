@@ -10,7 +10,7 @@ export const ViewQuestionsOfExam = () => {
     var auth = localStorage.getItem('userId')
 
     const getOneExam = () => {
-        axios.get(`http://localhost:8080/exams/${examId}`).then(res => {
+        axios.get(`https://eexamsystem.onrender.com/exams/${examId}`).then(res => {
             console.log(res.data.data)
             setexam(res.data.data)
             setquestions(res.data.data.questions)
@@ -21,7 +21,7 @@ export const ViewQuestionsOfExam = () => {
     }
 
     const deleteQuestion = (qId) => {
-        axios.delete(`http://localhost:8080/exams/${examId}/questions/${qId}`).then(res=>{
+        axios.delete(`https://eexamsystem.onrender.com/exams/${examId}/questions/${qId}`).then(res=>{
             console.log(res.data.data)
         }).catch(err=>{
             console.log(err)

@@ -15,7 +15,7 @@ export const Signup = () => {
     let navigate = useNavigate()
 
     const getRoles = () => {
-        axios.get('http://localhost:8080/roles').then(res => {
+        axios.get('https://eexamsystem.onrender.com/roles').then(res => {
             console.log(res.data.data)
             setroleList(res.data.data)
         }).catch(err => {

@@ -12,7 +12,7 @@ export const ViewOneExam = () => {
     const [authorId, setauthorId] = useState('')
 
     const getOneExam = () => {
-        axios.get(`http://localhost:8080/exams/${examId}`).then(res => {
+        axios.get(`https://eexamsystem.onrender.com/exams/${examId}`).then(res => {
             console.log(res.data.data)
             setexam(res.data.data)
             setauthorId(res.data.data.author._id)

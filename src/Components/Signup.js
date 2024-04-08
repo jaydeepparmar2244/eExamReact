@@ -57,7 +57,7 @@ export const Signup = () => {
             password: password,
             role: role,
         }
-        await axios.post('http://localhost:8080/users', data).then(res => {
+        await axios.post('https://eexamsystem.onrender.com/users', data).then(res => {
             console.log(res.data.data)
             localStorage.setItem('userId', res.data.data._id)
             localStorage.setItem('email', res.data.data.email);

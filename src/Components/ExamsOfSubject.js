@@ -10,7 +10,7 @@ export const ExamsOfSubject = () => {
     var navigate  = useNavigate()
     var auth = localStorage.getItem('email')
     const getSubject = () => {
-        axios.get(`http://localhost:8080/subjects/${subjectId}`).then(res => {
+        axios.get(`https://eexamsystem.onrender.com/subjects/${subjectId}`).then(res => {
             console.log(res.data.data)
             setsubject(res.data.data)
         }).catch(err => {

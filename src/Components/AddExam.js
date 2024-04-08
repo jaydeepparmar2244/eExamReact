@@ -4,7 +4,7 @@ import  { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 export const AddExam = () => {
-    const URL = "https://examkiller.herokuapp.com/"
+    const URL = "https://eexamsystem.onrender.com/"
     const [examName, setexamName] = useState('')
     const [totalQuestions, settotalQuestions] = useState('')
     const [isActive, setisActive] = useState('true')

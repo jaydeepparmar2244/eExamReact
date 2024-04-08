@@ -18,7 +18,7 @@ export const ExamsOfSubject = () => {
         })
     }
     const getExams = () => {
-        axios.get(`http://localhost:8080/subjects/${subjectId}/exams`).then(res => {
+        axios.get(`https://eexamsystem.onrender.com/subjects/${subjectId}/exams`).then(res => {
             console.log(res.data.data)
             setexams(res.data.data)
         }).catch(err => {

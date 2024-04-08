@@ -10,7 +10,7 @@ export const Search = () => {
     var navigate = useNavigate()
 
     const getExams = () => {
-        axios.get('http://localhost:8080/exams').then(res => {
+        axios.get('https://eexamsystem.onrender.com/exams').then(res => {
             console.log(res.data.data)
             setexamList(res.data.data)
         }).catch(err => {
@@ -27,7 +27,7 @@ export const Search = () => {
             navigate('/login')
         }
         else {
-            axios.delete(`http://localhost:8080/exams/${examId}`).then(res => {
+            axios.delete(`https://eexamsystem.onrender.com/exams/${examId}`).then(res => {
                 console.log(res.data.data)
                 toast.success('Exam Deleted!', {
                     position: "bottom-right",

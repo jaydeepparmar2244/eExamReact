@@ -12,7 +12,7 @@ export const ResetPasswordButton = () => {
         var data = {
             email: email
         }
-        axios.post('http://localhost:8080/forgotPassword', data).then(res => {
+        axios.post('https://eexamsystem.onrender.com/forgotPassword', data).then(res => {
             console.log(res.data.data)
             toast.info(res.data.msg, {
                 position: "bottom-right",

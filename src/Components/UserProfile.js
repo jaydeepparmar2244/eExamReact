@@ -8,7 +8,7 @@ export const UserProfile = () => {
   const [resultList, setresultList] = useState([])
   const [examList, setexamList] = useState([])
   const getUserDetail = () => {
-    axios.get(`http://localhost:8080/users/${userId}`).then(res => {
+    axios.get(`https://eexamsystem.onrender.com/users/${userId}`).then(res => {
       console.log(res.data.data)
       setuserDetail(res.data.data)
     }).catch(err => {
@@ -17,7 +17,7 @@ export const UserProfile = () => {
   }
 
   const getResultsOfUser = () => {
-    axios.get(`http://localhost:8080/results/${userId}`).then(res => {
+    axios.get(`https://eexamsystem.onrender.com/results/${userId}`).then(res => {
       console.log(res.data.data)
       setresultList(res.data.data)
     }).catch(err => {
@@ -26,7 +26,7 @@ export const UserProfile = () => {
   }
 
   const getExamsofAuthor = () =>{
-    axios.get(`http://localhost:8080/user/${userId}/exams`).then(res=>{
+    axios.get(`https://eexamsystem.onrender.com/user/${userId}/exams`).then(res=>{
       console.log(res.data.data)
       setexamList(res.data.data)
     }).catch(err=>{
